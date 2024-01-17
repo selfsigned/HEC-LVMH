@@ -2,4 +2,6 @@
 	import '../app.css';
 </script>
 
-<slot />
+<div class="h-[calc(100dvh)] w-full">
+	<slot />
+</div>

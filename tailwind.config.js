@@ -5,5 +5,5 @@ export default {
 		extend: {}
 	},
 	plugins: [require('daisyui')],
-	daisyui: { themes: ['lofi'] }
+	daisyui: { themes: ['light'] }
 };

@@ -12,8 +12,8 @@
 					Elevate the Retail Experience
 				</h1>
 				<p class="py-6">
-					Transform your customer's shopping experience with a comprehensive solution bringing the
-					information gap both offline and on-line
+					Transform your customer's shopping experience with a comprehensive omni-channel solution
+					and cool 3D
 				</p>
 				<a class="btn btn-primary" href="{base}/app">Try it now</a>
 			</div>

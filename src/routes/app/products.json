@@ -1,0 +1,32 @@
+[
+	{
+		"id": 0,
+		"name": "J'adore",
+		"category": "Eau de Parfum",
+		"brand": "Dior",
+		"price": "75",
+		"quantityML": "30",
+		"shelf": 0,
+		"picURL": "https://cdn.influenster.com/media/product/image/3911955_0000.png.750x750_q85ss0_progressive.png"
+	},
+	{
+		"id": 1,
+		"name": "Sauvage",
+		"category": "Parfum Homme",
+		"brand": "Dior",
+		"price": "165",
+		"quantityML": "60",
+		"shelf": 2,
+		"picURL": "https://fragrance.org/wp-content/uploads/2019/10/Breakout-Star-–-Sauvage-Eau-de-Toilette-Dior.png"
+	},
+	{
+		"id": 2,
+		"name": "very Savage",
+		"category": "Parfum Homme",
+		"brand": "Dior",
+		"price": "165",
+		"quantityML": "60",
+		"shelf": false,
+		"picURL": "https://fragrance.org/wp-content/uploads/2019/10/Breakout-Star-–-Sauvage-Eau-de-Toilette-Dior.png"
+	}
+]

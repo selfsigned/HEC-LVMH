@@ -1,8 +1,11 @@
 <script>
 	import { Canvas } from '@threlte/core';
-	import Scene from '$lib/3dmap/Scene.svelte';
+	import Scene from '$lib/3dmap/scene.svelte';
+
+	export let shelfData;
+	export let selectedProduct;
 </script>
 
 <Canvas>
-	<Scene />
+	<Scene {shelfData} {selectedProduct} />
 </Canvas>

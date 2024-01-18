@@ -16,11 +16,21 @@
 			product.name.toUpperCase().includes(searchInput.toUpperCase())
 		);
 	}
+	function searchSubmit(e) {
+		if (e.key === 'Enter') {
+			selectedProduct =
+				searchProducts.length > 0 &&
+				(!selectedProduct || searchProducts[0].id != selectedProduct.id)
+					? (selectedProduct = searchProducts[0])
+					: null;
+		}
+	}
 
 	// Selection
 	let selectedProduct = null;
 	function selectProductEvent(e, product) {
-		selectedProduct = product;
+		selectedProduct =
+			product && (!selectedProduct || product.id != selectedProduct.id) ? product : null;
 	}
 
 	// Viewmode
@@ -30,7 +40,9 @@
 
 <div class="flex h-full overflow-hidden">
 	<!-- Product sidebar -->
-	<div class="z-20 flex h-full min-w-72 flex-col items-center rounded-r-xl bg-base-200 shadow-sm">
+	<div
+		class="z-20 flex h-full min-w-72 flex-col items-center overflow-y-auto rounded-r-xl bg-base-200 shadow-sm"
+	>
 		<!-- Sidebar label -->
 		<div class="mb-4 mt-6 flex flex-row">
 			<h2 class="text-md text-xl">
@@ -64,9 +76,10 @@
 			<!-- svelte-ignore a11y-autofocus -->
 			<input
 				type="text"
-				placeholder=" Search your product"
+				placeholder="Find your product"
 				class="input min-w-80 rounded-full shadow-sm hover:shadow-xl focus:outline-none"
 				bind:value={searchInput}
+				on:keydown={searchSubmit}
 				autofocus
 			/>
 		</div>

@@ -21,13 +21,23 @@
 <!-- App shelf logic -->
 
 {#each shelfData as shelf, i}
-	<T.Mesh position.x={i * 4 - 4} castShadow>
+	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
 		{#if selectedProduct && selectedProduct.shelf === shelf.id}
-			<HTML position.y={-2} transform>
+			<HTML position.y={2.5} scale={0.5} transform>
 				<ProductCard productInfo={selectedProduct}></ProductCard>
 			</HTML>
 		{/if}
-		<Text position.y={2} text={shelf.name} fontSize={0.5}></Text>
+		{#if shelf.name}
+			<Text position.y={1.5} text={shelf.name} fontSize={0.5}></Text>
+		{/if}
 		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
 	</T.Mesh>
 {/each}
+
+<T.Mesh position.z={-5} position.y={2}>
+	<Text text={'Sephora'} fontSize={1}></Text>
+</T.Mesh>
+
+<T.Mesh position={[0, 0, 5]} rotation={[-1.57, 0, 0]}>
+	<Text text={'Entrance'} fontSize={0.5}></Text>
+</T.Mesh>

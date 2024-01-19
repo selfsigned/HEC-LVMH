@@ -1,11 +1,12 @@
 <script>
 	import { OrbitControls, Gizmo, Text, HTML } from '@threlte/extras';
 	import { T } from '@threlte/core';
+	import { shelfList } from '$lib/appstore.js';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
+	let shelfData = $shelfList;
 
-	export let shelfData;
 	export let selectedProduct;
 </script>
 
@@ -23,8 +24,8 @@
 {#each shelfData as shelf, i}
 	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
 		{#if selectedProduct && selectedProduct.shelf === shelf.id}
-			<HTML position.y={2.5} scale={0.5} transform>
-				<ProductCard productInfo={selectedProduct}></ProductCard>
+			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>
+				<ProductCard enableInfoBtn={true} productInfo={selectedProduct}></ProductCard>
 			</HTML>
 		{/if}
 		{#if shelf.name}

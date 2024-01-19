@@ -1,11 +1,16 @@
 <script>
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
 	import Icon from '@iconify/svelte';
 	import ThreeMap from '$lib/3dmap/map.svelte';
-	import Productcard from '$lib/productcard.svelte';
-	export let data;
+	import ProductCard from '$lib/productcard.svelte';
+	import ProductInfo from '$lib/productinfo.svelte';
+	import Modal from '$lib/modal.svelte';
+	import { productList, shelfList, productInfoModal } from '$lib/appstore.js';
 
 	// Mock data
-	let trendingProducts = data.products; // No need to bother with a separate list for now
+	let trendingProducts = $productList; // No need to bother with a separate list for now
 
 	// Search
 	let searchProducts;
@@ -36,6 +41,14 @@
 	// Viewmode
 	let viewMode;
 	$: viewMode = searchInput.length === 0 ? 'Trending' : 'Results';
+
+	onMount(() => {
+		// Search params
+		if ($page.url.searchParams.has('productinfo')) {
+			let productinfo = $page.url.searchParams.get('productinfo');
+			productInfoModal.set(productinfo);
+		}
+	});
 </script>
 
 <div class="flex h-full overflow-hidden">
@@ -63,7 +76,7 @@
 					role="button"
 					tabindex="0"
 				>
-					<Productcard {selected} {productInfo}></Productcard>
+					<ProductCard {selected} {productInfo}></ProductCard>
 				</div>
 			{/each}
 		</div>
@@ -84,7 +97,22 @@
 			/>
 		</div>
 		<div class="relative w-full grow">
-			<ThreeMap {selectedProduct} shelfData={data.shelves}></ThreeMap>
+			<ThreeMap {selectedProduct}></ThreeMap>
 		</div>
 	</div>
 </div>
+
+<!-- Product info modal -->
+{#if $productInfoModal}
+	<div class="z-[1000]">
+		<Modal
+			id={'productModal'}
+			openModal={true}
+			closeCallBack={() => {
+				productInfoModal.set(null);
+			}}
+		>
+			<ProductInfo id={$productInfoModal}></ProductInfo>
+		</Modal>
+	</div>
+{/if}

@@ -51,13 +51,13 @@
 	});
 </script>
 
-<div class="flex h-full overflow-hidden">
+<div class="flex h-full flex-col-reverse overflow-hidden sm:flex-row">
 	<!-- Product sidebar -->
 	<div
-		class="z-20 flex h-full min-w-72 flex-col items-center overflow-y-auto rounded-r-xl bg-base-200 shadow-sm"
+		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto rounded-r-xl shadow-sm sm:h-full sm:bg-base-200"
 	>
 		<!-- Sidebar label -->
-		<div class="mb-4 mt-6 flex flex-row">
+		<div class="mb-4 mt-6 hidden flex-row sm:flex">
 			<h2 class="text-md text-xl">
 				{viewMode}
 			</h2>
@@ -82,19 +82,29 @@
 		</div>
 	</div>
 
+	<!-- Divider on mobile -->
+	<div class="divider h-1 w-72 self-center sm:hidden">{viewMode}</div>
+
 	<!-- Search and canvas -->
 	<div class="flex h-full w-full flex-col items-center">
-		<div class="min-w absolute z-20 m-4 flex items-center justify-end">
-			<Icon class="absolute mr-5" height="22px" icon="line-md:search"></Icon>
-			<!-- svelte-ignore a11y-autofocus -->
-			<input
-				type="text"
-				placeholder="Find your product"
-				class="input min-w-80 rounded-full shadow-sm hover:shadow-xl focus:outline-none"
-				bind:value={searchInput}
-				on:keydown={searchSubmit}
-				autofocus
-			/>
+		<div class="absolute z-20 m-4 flex flex-row flex-wrap gap-x-4 gap-y-1">
+			<div class="flex items-center justify-end">
+				<!-- svelte-ignore a11y-autofocus -->
+				<input
+					type="text"
+					placeholder="Find your product"
+					class="input input-ghost w-80 rounded-full shadow-sm backdrop-blur-[6px] hover:shadow-xl focus:outline-none sm:w-auto"
+					bind:value={searchInput}
+					on:keydown={searchSubmit}
+				/>
+				<Icon class="absolute mr-5" height="22px" icon="line-md:search" />
+			</div>
+			<btn class="btn btn-ghost rounded-full shadow-sm backdrop-blur-[6px] hover:shadow-xl"
+				><Icon icon="mdi:human-greeting-variant" height="22px" />Experiences</btn
+			>
+			<btn class="btn btn-ghost rounded-full shadow-sm backdrop-blur-[6px] hover:shadow-xl"
+				><Icon icon="ic:baseline-discount" height="22px" />Promos</btn
+			>
 		</div>
 		<div class="relative w-full grow">
 			<ThreeMap {selectedProduct}></ThreeMap>

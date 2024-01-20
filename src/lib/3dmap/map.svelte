@@ -5,6 +5,6 @@
 	export let selectedProduct;
 </script>
 
-<Canvas>
+<Canvas useLegacyLights={false}>
 	<Scene {selectedProduct} />
 </Canvas>

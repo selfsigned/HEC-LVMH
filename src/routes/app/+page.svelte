@@ -7,7 +7,7 @@
 	import ProductCard from '$lib/productcard.svelte';
 	import ProductInfo from '$lib/productinfo.svelte';
 	import Modal from '$lib/modal.svelte';
-	import { productList, shelfList, productInfoModal } from '$lib/appstore.js';
+	import { productList, productInfoModal } from '$lib/appstore.js';
 
 	// Mock data
 	let trendingProducts = $productList; // No need to bother with a separate list for now

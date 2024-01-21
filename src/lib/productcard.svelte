@@ -1,5 +1,5 @@
 <script>
-	import { shelfList, productInfoModal } from '$lib/appstore.js';
+	import { shelfData, productInfoModal } from '$lib/appstore.js';
 	export let productInfo;
 	export let selected = false;
 	export let enableInfoBtn = false;
@@ -7,10 +7,6 @@
 	function setInfoModal(e, id) {
 		productInfoModal.set(id);
 		console.log($productInfoModal);
-	}
-
-	function findProductShelf(shelfId) {
-		return $shelfList.filter((shelf) => shelf.id == shelfId)[0];
 	}
 </script>
 
@@ -23,9 +19,9 @@
 		<h2 class="font card-title font-bold">{productInfo.name}</h2>
 		<h3 class="-mt-1 text-sm font-light italic">{productInfo.category}</h3>
 		<div class="flex flex-row">
-			{#if productInfo.shelf != null}
+			{#if productInfo.shelf != null && productInfo.shelf in $shelfData}
 				<div class="h-4 w-4 rounded-full bg-success"></div>
-				<div class="ml-1 text-sm">{findProductShelf(productInfo.shelf).name}</div>
+				<div class="ml-1 text-sm">{$shelfData[productInfo.shelf].name}</div>
 			{:else}
 				<div class="h-4 w-4 rounded-full bg-warning font-light"></div>
 				<div class="ml-1 text-sm">Online</div>

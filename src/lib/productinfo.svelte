@@ -1,5 +1,5 @@
 <script>
-	import { productList, shelfList } from '$lib/appstore.js';
+	import { productList } from '$lib/appstore.js';
 
 	export let id; // ID of the product to display infos of
 

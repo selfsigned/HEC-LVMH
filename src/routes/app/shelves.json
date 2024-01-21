@@ -1,6 +1,6 @@
-[
-	{ "id": 0, "pos": [4, 1, 2], "name": "Dior" },
-	{ "id": 2, "pos": [-4, 1, -4], "rot": [0, 4.71, 0], "name": "Men perfume" },
-	{ "id": 3, "pos": [-4.5, 1, -2.5], "name": "Next Big Thing" },
-	{ "id": 4, "pos": [2, 1, -2], "name": "Makeup experience" }
-]
+{
+	"0": { "pos": [4, 1, 2], "name": "Dior" },
+	"2": { "pos": [-4, 1, -4], "rot": [0, 4.71, 0], "name": "Men perfume" },
+	"3": { "pos": [-4.5, 1, -2.5], "name": "Next Big Thing" },
+	"4": { "pos": [2, 1, -2], "name": "Makeup experience" }
+}

@@ -14,9 +14,18 @@
 
 	let cameraControls;
 
+	function resetCameraPosition() {
+		cameraControls.moveTo(0, 0, 0, true);
+	}
+
 	function rotateToItem(itemId) {
+		if (!cameraControls) return;
+
 		let item = $itemData[itemId];
-		if (!item) return;
+		if (!item) {
+			resetCameraPosition();
+			return;
+		}
 		let shelf = shelves[item.shelf];
 		if (!shelf) return;
 		let rot = shelf.rot || [0, 0, 0];
@@ -34,7 +43,7 @@
 		on:create={({ ref }) => {
 			cameraControls = ref;
 		}}
-		maxPolarAngle={Math.PI / 2}
+		maxPolarAngle={Math.PI / 2 - 0.1}
 	/>
 </T.PerspectiveCamera>
 <Gizmo horizontalPlacement="left" paddingX={20} paddingY={20} />

@@ -1,32 +1,29 @@
-[
-	{
-		"id": 71388,
+{
+	"71388": {
 		"shelf": 0,
 		"name": "J'adore",
 		"category": "Eau de Parfum",
 		"brand": "Dior",
-		"price": "75",
-		"quantityML": "30",
+		"price": 75,
+		"quantityML": 30,
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw046c217c/images/hi-res/SKU/SKU_6/71388_swatch.jpg"
 	},
-	{
-		"id": 421404,
+	"421404": {
 		"shelf": 2,
 		"name": "Sauvage",
 		"category": "Parfum Homme",
 		"brand": "Dior",
-		"price": "87",
-		"quantityML": "60",
+		"price": 87,
+		"quantityML": 60,
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb7fca1c2/images/hi-res/SKU/SKU_4/335956_swatch.jpg"
 	},
-	{
-		"id": 701980,
+	"701980": {
 		"shelf": null,
 		"name": "Good Girl",
 		"category": "Coffret Eau de parfum",
 		"brand": "CAROLINA HERRERA",
-		"price": "104",
-		"quantityML": "80",
+		"price": 104,
+		"quantityML": 80,
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwede99b16/images/hi-res/SKU/SKU_4782/701980_swatch.jpg"
 	}
-]
+}

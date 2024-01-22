@@ -1,9 +1,9 @@
-import productsJson from './products.json';
+import itemsJson from './items.json';
 import shelvesJson from './shelves.json';
-import { productList, shelfData, productInfoModal } from '$lib/appstore.js';
+import { itemData, shelfData } from '$lib/appstore.js';
 
 export function load({ url }) {
 	// Load data
-	productList.set(productsJson);
+	itemData.set(itemsJson);
 	shelfData.set(shelvesJson);
 }

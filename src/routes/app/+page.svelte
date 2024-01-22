@@ -7,35 +7,37 @@
 	import ProductCard from '$lib/productcard.svelte';
 	import ProductInfo from '$lib/productinfo.svelte';
 	import Modal from '$lib/modal.svelte';
-	import { productList, productInfoModal } from '$lib/appstore.js';
+	import { itemData, productInfoModal } from '$lib/appstore.js';
 
 	// Mock data
-	let trendingProducts = $productList; // No need to bother with a separate list for now
+	let productItems = $itemData; // No need to bother with a separate list for now
 
 	// Search
-	let searchProducts;
+	let searchProducts = productItems;
 	let searchInput = '';
 	$: if (searchInput.length > 0) {
+		let textTarget = searchInput.toLocaleUpperCase();
 		// TODO filter on brand || category?
-		searchProducts = trendingProducts.filter((product) =>
-			product.name.toUpperCase().includes(searchInput.toUpperCase())
-		);
+		searchProducts = Object.keys(searchProducts).reduce((result, key) => {
+			if (searchProducts[key].name.toUpperCase().includes(textTarget)) {
+				result[key] = searchProducts[key];
+			}
+			return result;
+		}, {});
+		searchProducts = searchProducts;
+	} else {
+		searchProducts = productItems;
 	}
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
-			selectedProduct =
-				searchProducts.length > 0 &&
-				(!selectedProduct || searchProducts[0].id != selectedProduct.id)
-					? (selectedProduct = searchProducts[0])
-					: null;
+			selectedItem = !selectedItem ? Object.keys(searchProducts)[0] : null;
 		}
 	}
 
 	// Selection
-	let selectedProduct = null;
-	function selectProductEvent(e, product) {
-		selectedProduct =
-			product && (!selectedProduct || product.id != selectedProduct.id) ? product : null;
+	let selectedItem = null;
+	function selectItemEvent(e, itemId) {
+		selectedItem = selectedItem !== itemId ? itemId : null;
 	}
 
 	// Viewmode
@@ -68,15 +70,15 @@
 
 		<!-- Product list -->
 		<div class="m-2 space-y-2">
-			{#each viewMode == 'Results' ? searchProducts : trendingProducts as productInfo}
-				{@const selected = selectedProduct && selectedProduct.id == productInfo.id}
+			{#each Object.keys(searchProducts) as productId (productId)}
+				{@const selected = selectedItem == productId}
 				<div
-					on:click={selectProductEvent(Event, productInfo)}
-					on:keypress={selectProductEvent(Event, productInfo)}
+					on:click={() => selectItemEvent(Event, productId)}
+					on:keypress={() => selectItemEvent(Event, productId)}
 					role="button"
 					tabindex="0"
 				>
-					<ProductCard {selected} {productInfo}></ProductCard>
+					<ProductCard {selected} id={productId}></ProductCard>
 				</div>
 			{/each}
 		</div>
@@ -107,7 +109,7 @@
 			>
 		</div>
 		<div class="relative w-full grow">
-			<ThreeMap {selectedProduct}></ThreeMap>
+			<ThreeMap {selectedItem}></ThreeMap>
 		</div>
 	</div>
 </div>

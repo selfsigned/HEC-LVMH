@@ -4,7 +4,7 @@
 	export let selected = false;
 	export let enableInfoBtn = false;
 
-	let itemInfo = $itemData[id];
+	$: itemInfo = $itemData[id];
 
 	function setInfoModal(e, id) {
 		productInfoModal.set(id);

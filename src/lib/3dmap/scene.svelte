@@ -1,15 +1,13 @@
 <script>
 	import { OrbitControls, Gizmo, Text, HTML } from '@threlte/extras';
 	import { T } from '@threlte/core';
-	import { itemData, shelfData } from '$lib/appstore.js';
+	import { itemData, shelfData, currentItem } from '$lib/appstore.js';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
 	let shelves = $shelfData;
 
-	export let selectedItem;
-	let selectedItemData;
-	$: selectedItemData = selectedItem in $itemData ? $itemData[selectedItem] : null;
+	$: currentItemData = $currentItem in $itemData ? $itemData[$currentItem] : null;
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 12, 10]} lookAt.y={0.5}>
@@ -24,9 +22,9 @@
 {#each Object.keys(shelves) as shelfKey (shelfKey)}
 	{@const shelf = shelves[shelfKey]}
 	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
-		{#if selectedItemData && selectedItemData.shelf == shelfKey}
+		{#if currentItemData && currentItemData.shelf == shelfKey}
 			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>
-				<ProductCard enableInfoBtn={true} id={selectedItem}></ProductCard>
+				<ProductCard enableInfoBtn={true} id={$currentItem}></ProductCard>
 			</HTML>
 		{/if}
 		{#if shelf.name}

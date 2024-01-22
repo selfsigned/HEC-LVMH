@@ -9,7 +9,13 @@
 	import ProductCard from '$lib/productcard.svelte';
 	import ProductInfo from '$lib/productinfo.svelte';
 	import Modal from '$lib/modal.svelte';
-	import { itemData, categoryData, productInfoModal, currentCategory } from '$lib/appstore.js';
+	import {
+		itemData,
+		categoryData,
+		productInfoModal,
+		currentCategory,
+		currentItem
+	} from '$lib/appstore.js';
 
 	// Default variables
 	const defaultCategory = 'trend';
@@ -27,48 +33,43 @@
 			return result;
 		}, {});
 	}
-	let activeProducts;
+
 	$: activeProducts = filterItemsByCategory(allItems, $currentCategory);
 	let searchInput = '';
-	$: if (searchInput.length > 0) {
-		// Set category to product
-		$currentCategory = 'product';
-		let textTarget = searchInput.toLocaleUpperCase();
-		// TODO filter on brand || category?
-		activeProducts = Object.keys(activeProducts).reduce((result, key) => {
-			if (activeProducts[key].name.toUpperCase().includes(textTarget)) {
-				result[key] = activeProducts[key];
-			}
-			return result;
-		}, {});
-		activeProducts = activeProducts;
-	} else {
-		$currentCategory = defaultCategory;
-	}
+	$: setTimeout(() => {
+		if (searchInput.length > 0) {
+			// Set category to product
+			$currentCategory = 'product';
+			let textTarget = searchInput.toLocaleUpperCase();
+			// TODO filter on brand || category?
+			activeProducts = Object.keys(activeProducts).reduce((result, key) => {
+				if (activeProducts[key].name.toLocaleUpperCase().includes(textTarget)) {
+					result[key] = activeProducts[key];
+				}
+				return result;
+			}, {});
+			activeProducts = activeProducts;
+		} else {
+			$currentCategory = defaultCategory;
+		}
+	});
 
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
-			selectedItem = !selectedItem ? Object.keys(activeProducts)[0] : null;
+			$currentItem = !$currentItem ? Object.keys(activeProducts)[0] : null;
 		}
 	}
 
 	// Category select
 	$currentCategory = defaultCategory;
 	function selectCategory(e, category) {
-		// Reset the selected item on category change
-		selectedItem = null;
-
-		if (category == $currentCategory) {
-			$currentCategory = defaultCategory;
-		} else {
-			currentCategory.set(category);
-		}
+		$currentItem = null; // Reset the selected item on category change
+		$currentCategory = category === $currentCategory ? defaultCategory : category;
 	}
 
 	// Selection
-	let selectedItem = null;
 	function selectItemEvent(e, itemId) {
-		selectedItem = selectedItem !== itemId ? itemId : null;
+		$currentItem = $currentItem !== itemId ? itemId : null;
 	}
 
 	onMount(() => {
@@ -103,7 +104,7 @@
 		<!-- Product list -->
 		<div class="m-2 space-y-2">
 			{#each Object.keys(activeProducts) as productId (productId)}
-				{@const selected = selectedItem == productId}
+				{@const selected = $currentItem == productId}
 				<div
 					on:click={() => selectItemEvent(Event, productId)}
 					on:keypress={() => selectItemEvent(Event, productId)}
@@ -154,7 +155,7 @@
 			{/each}
 		</div>
 		<div class="relative w-full grow">
-			<ThreeMap {selectedItem}></ThreeMap>
+			<ThreeMap />
 		</div>
 	</div>
 </div>

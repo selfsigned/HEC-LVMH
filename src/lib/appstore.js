@@ -10,3 +10,4 @@ export const productInfoModal = writable(null); // Display the product info moda
 
 // App user state
 export const currentCategory = writable(null);
+export const currentItem = writable(null);

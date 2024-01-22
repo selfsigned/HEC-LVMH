@@ -10,6 +10,7 @@
 	},
 	"1": {
 		"categories": ["service"],
+		"shelf": 4,
 		"name": "Glamour Makeup",
 		"category": "60 minutes",
 		"price": 60,
@@ -45,7 +46,7 @@
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb7fca1c2/images/hi-res/SKU/SKU_4/335956_swatch.jpg"
 	},
 	"701980": {
-		"categories": ["product", "trend"],
+		"categories": ["product", "promo", "trend"],
 		"shelf": null,
 		"name": "Good Girl",
 		"category": "Coffret Eau de parfum",

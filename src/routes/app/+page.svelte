@@ -81,7 +81,7 @@
 		// Search params
 		if ($page.url.searchParams.has('productinfo')) {
 			let productinfo = $page.url.searchParams.get('productinfo');
-			productInfoModal.set(productinfo);
+			$productInfoModal = productinfo;
 		}
 	});
 </script>

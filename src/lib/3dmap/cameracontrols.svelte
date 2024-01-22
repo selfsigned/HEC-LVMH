@@ -5,7 +5,7 @@
 	let installed = false;
 </script>
 
-<script lang="ts">
+<script>
 	import { T, forwardEventHandlers, useTask, useParent, useThrelte } from '@threlte/core';
 	import CameraControls from 'camera-controls';
 	import * as THREE from 'three';
@@ -23,7 +23,7 @@
 
 	const { renderer, invalidate } = useThrelte();
 
-	export const ref = new CameraControls($parent as T.PerspectiveCamera, renderer?.domElement);
+	export const ref = new CameraControls($parent, renderer?.domElement);
 
 	const getControls = () => ref;
 

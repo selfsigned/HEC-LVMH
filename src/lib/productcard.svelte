@@ -24,7 +24,7 @@
 				<div class="-mt-[0.125rem] ml-1 text-sm">{$shelfData[itemInfo.shelf].name}</div>
 			{:else}
 				<div class="h-4 w-4 rounded-full bg-warning font-light"></div>
-				<div class="-mt-[0.125rem] ml-1 text-sm">Online</div>
+				<div class="-mt-[0.125rem] ml-1 text-sm">Click & Collect</div>
 			{/if}
 		</div>
 		<!-- {#if itemInfo.promo > 0}

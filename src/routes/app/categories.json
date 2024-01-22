@@ -1,0 +1,6 @@
+{
+	"product": { "name": "Search", "icon": "mdi:store-search", "show_all": true, "hide_top": true },
+	"trend": { "name": "Trending", "icon": "mdi:trending-up", "hide_top": true },
+	"service": { "name": "Services", "icon": "mdi:human-greeting-variant" },
+	"promo": { "name": "Promos", "icon": "mdi:cart-percent" }
+}

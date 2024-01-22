@@ -1,0 +1,57 @@
+{
+	"0": {
+		"categories": ["service"],
+		"shelf": 4,
+		"name": "Complete Makeup",
+		"category": "45 minutes",
+		"price": 45,
+		"promo": 5,
+		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/default/dwee659587/service/ServicesMU45.jpg"
+	},
+	"1": {
+		"categories": ["service"],
+		"name": "Glamour Makeup",
+		"category": "60 minutes",
+		"price": 60,
+		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/fr_FR/dw4a53c51b/60%20min%20540x370px_MU1.jpg"
+	},
+	"2": {
+		"categories": ["service", "trend"],
+		"shelf": 4,
+		"name": "Skin Diagnosis",
+		"category": "10 minutes",
+		"price": 0,
+		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/default/dw85e371d5/LP/instore-experience-generique-master-studio/7.png"
+	},
+	"71388": {
+		"categories": ["product", "promo", "trend"],
+		"shelf": 0,
+		"name": "J'adore",
+		"category": "Eau de Parfum",
+		"brand": "Dior",
+		"price": 75,
+		"promo": 10,
+		"quantityML": 30,
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw046c217c/images/hi-res/SKU/SKU_6/71388_swatch.jpg"
+	},
+	"421404": {
+		"categories": ["product"],
+		"shelf": 2,
+		"name": "Sauvage",
+		"category": "Parfum Homme",
+		"brand": "Dior",
+		"price": 87,
+		"quantityML": 60,
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb7fca1c2/images/hi-res/SKU/SKU_4/335956_swatch.jpg"
+	},
+	"701980": {
+		"categories": ["product", "promo"],
+		"shelf": null,
+		"name": "Good Girl",
+		"category": "Coffret Eau de parfum",
+		"brand": "CAROLINA HERRERA",
+		"price": 104,
+		"quantityML": 80,
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwede99b16/images/hi-res/SKU/SKU_4782/701980_swatch.jpg"
+	}
+}

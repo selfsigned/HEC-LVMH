@@ -1,7 +1,8 @@
 <script>
-	import { OrbitControls, Gizmo, Text, HTML } from '@threlte/extras';
+	import { Gizmo, Text, HTML } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import { itemData, shelfData } from '$lib/appstore.js';
+	import CameraControls from './cameracontrols.svelte';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
@@ -10,10 +11,31 @@
 	export let selectedItem;
 	let selectedItemData;
 	$: selectedItemData = selectedItem in $itemData ? $itemData[selectedItem] : null;
+
+	let cameraControls;
+
+	function rotateToItem(itemId) {
+		let item = $itemData[itemId];
+		if (!item) return;
+		let shelf = shelves[item.shelf];
+		if (!shelf) return;
+		let rot = shelf.rot || [0, 0, 0];
+
+		cameraControls.rotateAzimuthTo(rot[1], true);
+		cameraControls.moveTo(shelf.pos[0], shelf.pos[1], shelf.pos[2], true);
+		cameraControls.rotatePolarTo(1.0, true);
+	}
+
+	$: rotateToItem(selectedItem);
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 12, 10]} lookAt.y={0.5}>
-	<OrbitControls enableDamping maxPolarAngle={1.5} />
+<T.PerspectiveCamera makeDefault position={[0, 10, 5]} lookAt.y={0.5}>
+	<CameraControls
+		on:create={({ ref }) => {
+			cameraControls = ref;
+		}}
+		maxPolarAngle={Math.PI / 2}
+	/>
 </T.PerspectiveCamera>
 <Gizmo horizontalPlacement="left" paddingX={20} paddingY={20} />
 

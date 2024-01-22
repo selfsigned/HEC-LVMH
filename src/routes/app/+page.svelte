@@ -68,7 +68,13 @@
 
 	// Selection
 	function selectItemEvent(e, itemId) {
-		$currentItem = $currentItem !== itemId ? itemId : null;
+		if (allItems[itemId].shelf !== null) {
+			// if item is avail show it on map
+			$currentItem = $currentItem !== itemId ? itemId : null;
+		} else {
+			// otherwise open the modal to order it
+			$productInfoModal = itemId;
+		}
 	}
 
 	onMount(() => {

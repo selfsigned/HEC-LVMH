@@ -46,7 +46,6 @@
 		maxPolarAngle={Math.PI / 2 - 0.1}
 	/>
 </T.PerspectiveCamera>
-<Gizmo horizontalPlacement="left" paddingX={20} paddingY={20} />
 
 <T.DirectionalLight position={[0, 0, 10]} castShadow />
 <T.AmbientLight intensity={10} />

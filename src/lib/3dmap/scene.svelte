@@ -8,6 +8,8 @@
 	let shelves = $shelfData;
 
 	export let selectedItem;
+	let selectedItemData;
+	$: selectedItemData = selectedItem in $itemData ? $itemData[selectedItem] : null;
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 12, 10]} lookAt.y={0.5}>
@@ -22,7 +24,7 @@
 {#each Object.keys(shelves) as shelfKey (shelfKey)}
 	{@const shelf = shelves[shelfKey]}
 	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
-		{#if selectedItem in $itemData && $itemData[selectedItem].shelf == shelfKey}
+		{#if selectedItemData && selectedItemData.shelf == shelfKey}
 			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>
 				<ProductCard enableInfoBtn={true} id={selectedItem}></ProductCard>
 			</HTML>

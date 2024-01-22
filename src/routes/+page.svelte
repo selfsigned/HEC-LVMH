@@ -9,7 +9,7 @@
 				<h1
 					class="text-bold bg-gradient-to-r from-primary via-secondary to-primary-content bg-clip-text text-5xl text-transparent"
 				>
-					Elevate Your Retail Experience
+					Your Store, Your World
 				</h1>
 				<p class="py-6">
 					Transform your customer's shopping experience with a comprehensive omni-channel solution

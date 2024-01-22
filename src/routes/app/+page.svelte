@@ -68,14 +68,20 @@
 
 	// Selection
 	function selectItemEvent(e, itemId) {
-		$currentItem = $currentItem !== itemId ? itemId : null;
+		if (allItems[itemId].shelf) {
+			// if item is avail show it on map
+			$currentItem = $currentItem !== itemId ? itemId : null;
+		} else {
+			// otherwise open the modal to order it
+			$productInfoModal = itemId;
+		}
 	}
 
 	onMount(() => {
 		// Search params
 		if ($page.url.searchParams.has('productinfo')) {
 			let productinfo = $page.url.searchParams.get('productinfo');
-			productInfoModal.set(productinfo);
+			$productInfoModal = productinfo;
 		}
 	});
 </script>

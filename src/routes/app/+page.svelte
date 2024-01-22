@@ -15,30 +15,40 @@
 	const defaultCategory = 'trend';
 
 	// Mock data
-	let productItems = $itemData; // No need to bother with a separate list for now
+	let allItems = $itemData; // No need to bother with a separate list for now
 	let categories = $categoryData;
 
-	// Search
-	let searchProducts = productItems;
+	// Search and Filter Items
+	function filterItemsByCategory(items, category) {
+		return Object.keys(items).reduce((result, key) => {
+			if (items[key].categories.includes(category)) {
+				result[key] = items[key];
+			}
+			return result;
+		}, {});
+	}
+	let activeProducts;
+	$: activeProducts = filterItemsByCategory(allItems, $currentCategory);
 	let searchInput = '';
 	$: if (searchInput.length > 0) {
 		// Set category to product
 		$currentCategory = 'product';
 		let textTarget = searchInput.toLocaleUpperCase();
 		// TODO filter on brand || category?
-		searchProducts = Object.keys(searchProducts).reduce((result, key) => {
-			if (searchProducts[key].name.toUpperCase().includes(textTarget)) {
-				result[key] = searchProducts[key];
+		activeProducts = Object.keys(activeProducts).reduce((result, key) => {
+			if (activeProducts[key].name.toUpperCase().includes(textTarget)) {
+				result[key] = activeProducts[key];
 			}
 			return result;
 		}, {});
-		searchProducts = searchProducts;
+		activeProducts = activeProducts;
 	} else {
-		searchProducts = productItems;
+		$currentCategory = defaultCategory;
 	}
+
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
-			selectedItem = !selectedItem ? Object.keys(searchProducts)[0] : null;
+			selectedItem = !selectedItem ? Object.keys(activeProducts)[0] : null;
 		}
 	}
 
@@ -47,7 +57,12 @@
 	function selectCategory(e, category) {
 		// Reset the selected item on category change
 		selectedItem = null;
-		currentCategory.set(category);
+
+		if (category == $currentCategory) {
+			$currentCategory = defaultCategory;
+		} else {
+			currentCategory.set(category);
+		}
 	}
 
 	// Selection
@@ -55,10 +70,6 @@
 	function selectItemEvent(e, itemId) {
 		selectedItem = selectedItem !== itemId ? itemId : null;
 	}
-
-	// Viewmode
-	let viewMode;
-	$: viewMode = searchInput.length === 0 ? 'Trending' : 'Results';
 
 	onMount(() => {
 		// Search params
@@ -91,7 +102,7 @@
 
 		<!-- Product list -->
 		<div class="m-2 space-y-2">
-			{#each Object.keys(searchProducts) as productId (productId)}
+			{#each Object.keys(activeProducts) as productId (productId)}
 				{@const selected = selectedItem == productId}
 				<div
 					on:click={() => selectItemEvent(Event, productId)}
@@ -106,7 +117,12 @@
 	</div>
 
 	<!-- Divider on mobile -->
-	<div class="divider h-1 w-72 self-center sm:hidden">{viewMode}</div>
+	{#if $currentCategory in categories}
+		{@const catData = categories[$currentCategory]}
+		<div transition:blur class="divider h-1 w-72 self-center sm:hidden">
+			<Icon height="100px" icon={catData.icon} />{catData.name}
+		</div>
+	{/if}
 
 	<!-- Search and canvas -->
 	<div class="flex h-full w-full flex-col items-center">

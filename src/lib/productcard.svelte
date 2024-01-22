@@ -13,7 +13,6 @@
 
 <div class="card card-side w-72 {selected ? 'bg-base-200 shadow-xl' : 'bg-base-100 shadow-md'}">
 	<figure class="outline-4 outline-red-800">
-		<!-- TODO better pic display / aspect ratio control -->
 		<img src={itemInfo.picURL} class="mask mask-squircle ml-2 h-20 w-20" alt="Product" />
 	</figure>
 	<div class="card-body">

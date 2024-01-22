@@ -10,21 +10,21 @@
 	},
 	"1": {
 		"categories": ["service"],
-		"shelf": 4,
 		"name": "Glamour Makeup",
 		"category": "60 minutes",
 		"price": 60,
 		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/fr_FR/dw4a53c51b/60%20min%20540x370px_MU1.jpg"
 	},
 	"2": {
-		"categories": ["service"],
+		"categories": ["service", "trend"],
+		"shelf": 4,
 		"name": "Skin Diagnosis",
 		"category": "10 minutes",
 		"price": 0,
 		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/default/dw85e371d5/LP/instore-experience-generique-master-studio/7.png"
 	},
 	"71388": {
-		"categories": ["product", "promo"],
+		"categories": ["product", "promo", "trend"],
 		"shelf": 0,
 		"name": "J'adore",
 		"category": "Eau de Parfum",

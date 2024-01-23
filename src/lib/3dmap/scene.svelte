@@ -1,19 +1,48 @@
 <script>
-	import { OrbitControls, Gizmo, Text, HTML } from '@threlte/extras';
+	import { Gizmo, Text, HTML } from '@threlte/extras';
 	import { T } from '@threlte/core';
+	import CameraControls from './cameracontrols.svelte';
 	import { itemData, shelfData, currentItem } from '$lib/appstore.js';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
 	let shelves = $shelfData;
 
+	let cameraControls;
+
+	function resetCameraPosition() {
+		cameraControls.moveTo(0, 0, 0, true);
+	}
+
+	function rotateToItem(itemId) {
+		if (!cameraControls) return;
+
+		let item = $itemData[itemId];
+		if (!item) {
+			resetCameraPosition();
+			return;
+		}
+		let shelf = shelves[item.shelf];
+		if (!shelf) return;
+		let rot = shelf.rot || [0, 0, 0];
+
+		cameraControls.rotateAzimuthTo(rot[1], true);
+		cameraControls.moveTo(shelf.pos[0], shelf.pos[1], shelf.pos[2], true);
+		cameraControls.rotatePolarTo(1.0, true);
+	}
+
+	$: rotateToItem($currentItem);
 	$: currentItemData = $currentItem in $itemData ? $itemData[$currentItem] : null;
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 12, 10]} lookAt.y={0.5}>
-	<OrbitControls enableDamping maxPolarAngle={1.5} />
+<T.PerspectiveCamera makeDefault position={[0, 12, 12]} lookAt.y={0.5}>
+	<CameraControls
+		on:create={({ ref }) => {
+			cameraControls = ref;
+		}}
+		maxPolarAngle={Math.PI / 2 - 0.1}
+	/>
 </T.PerspectiveCamera>
-<Gizmo horizontalPlacement="left" paddingX={20} paddingY={20} />
 
 <T.DirectionalLight position={[0, 0, 10]} castShadow />
 <T.AmbientLight intensity={10} />

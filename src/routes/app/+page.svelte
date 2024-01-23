@@ -33,6 +33,7 @@
 			return result;
 		}, {});
 	}
+
 	$: activeProducts = filterItemsByCategory(allItems, $currentCategory);
 	let searchInput = '';
 	$: setTimeout(() => {
@@ -160,7 +161,7 @@
 			{/each}
 		</div>
 		<div class="relative w-full grow">
-			<ThreeMap></ThreeMap>
+			<ThreeMap />
 		</div>
 	</div>
 </div>

@@ -1,11 +1,11 @@
 import itemsJson from './items.json';
-import shelvesJson from './shelves.json';
+import objectsJson from './objects.json';
 import categoriesJson from './categories.json';
-import { itemData, shelfData, categoryData } from '$lib/appstore.js';
+import { itemData, objectsData, categoryData } from '$lib/appstore.js';
 
 export function load({ url }) {
 	// Load data
 	itemData.set(itemsJson);
-	shelfData.set(shelvesJson);
+	objectsData.set(objectsJson);
 	categoryData.set(categoriesJson);
 }

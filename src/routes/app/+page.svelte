@@ -64,6 +64,7 @@
 	$currentCategory = defaultCategory;
 	function selectCategory(e, category) {
 		$currentItem = null; // Reset the selected item on category change
+		searchInput = ''; // Reset the search input as well
 		$currentCategory = category === $currentCategory ? defaultCategory : category;
 	}
 

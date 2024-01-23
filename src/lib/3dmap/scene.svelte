@@ -35,7 +35,7 @@
 	$: currentItemData = $currentItem in $itemData ? $itemData[$currentItem] : null;
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 10, 5]} lookAt.y={0.5}>
+<T.PerspectiveCamera makeDefault position={[0, 12, 12]} lookAt.y={0.5}>
 	<CameraControls
 		on:create={({ ref }) => {
 			cameraControls = ref;

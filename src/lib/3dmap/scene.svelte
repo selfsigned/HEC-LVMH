@@ -25,7 +25,7 @@
 		}
 		let object = objects[item.object];
 		if (!object) return;
-		let rot = object.rot || [0, 0, 0];
+		let rot = object.rot ? [0, (object.rot / 180) * Math.PI, 0] : [0, 0, 0];
 
 		cameraControls.rotateAzimuthTo(rot[1], true);
 		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
@@ -54,6 +54,7 @@
 			cameraControls = ref;
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
+		draggingSmoothTime={0.2}
 	/>
 </T.PerspectiveCamera>
 
@@ -65,13 +66,13 @@
 	{@const object = objects[objectKey]}
 	<T.Mesh
 		position={object.pos}
-		rotation={object.rot || [0, 0, 0]}
-		scale={object.scale || [1, 1, 1]}
+		rotation={object.rot ? [0, (object.rot / 180) * Math.PI, 0] : [0, 0, 0]}
+		scale={object.scale ? [object.scale, object.scale, object.scale] : [1, 1, 1]}
 		castShadow
 		receiveShadow
 	>
 		{#if currentItemData && currentItemData.object == objectKey}
-			<HTML occlude position.y={2.5} scale={0.5} transform>
+			<HTML occlude position={object.card_offset} scale={0.5 / (object.scale || 1)} transform>
 				<ProductCard enableInfoBtn={true} id={$currentItem}></ProductCard>
 			</HTML>
 		{/if}
@@ -90,7 +91,7 @@
 			{@const model = getModel(object.model)}
 			{#await model then model}
 				{#each Object.keys(model.nodes) as node (node)}
-					<T is={model.nodes[node]} />
+					<T is={model.nodes[node]} castShadow />
 				{/each}
 			{/await}
 		{:else}

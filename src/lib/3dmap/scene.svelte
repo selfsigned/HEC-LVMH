@@ -1,18 +1,16 @@
 <script>
-	import { Text, HTML, useGltf } from '@threlte/extras';
+	import { Text } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
-	import { base } from '$app/paths';
-
-	// App logic
-	import ProductCard from '$lib/productcard.svelte';
+	import ObjectModel from './objectmodel.svelte';
 
 	let objects = $objectsData;
 	let cameraControls;
 
 	function resetCameraPosition() {
 		cameraControls.moveTo(0, 0, 0, true);
+		cameraControls.rotateAzimuthTo(0, true);
 	}
 
 	function rotateToItem(itemId) {
@@ -23,29 +21,16 @@
 			resetCameraPosition();
 			return;
 		}
+
 		let object = objects[item.object];
 		if (!object) return;
-		let rot = object.rot ? [0, (object.rot / 180) * Math.PI, 0] : [0, 0, 0];
 
-		cameraControls.rotateAzimuthTo(rot[1], true);
+		cameraControls.rotateAzimuthTo(0.0, true);
 		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
 		cameraControls.rotatePolarTo(1.0, true);
 	}
 
 	$: rotateToItem($currentItem);
-	$: currentItemData = $currentItem in $itemData ? $itemData[$currentItem] : null;
-
-	// This is a simple cache that prevents the same model from being loaded multiple times.
-	let model_cache = {};
-	function getModel(filename) {
-		if (filename in model_cache) {
-			return model_cache[filename];
-		}
-
-		let model = useGltf(base + '/models/' + filename);
-		model_cache[filename] = model;
-		return model;
-	}
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 12, 12]} lookAt.y={0.5}>
@@ -63,42 +48,7 @@
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
-	{@const object = objects[objectKey]}
-	<T.Mesh
-		position={object.pos}
-		rotation={object.rot ? [0, (object.rot / 180) * Math.PI, 0] : [0, 0, 0]}
-		scale={object.scale ? [object.scale, object.scale, object.scale] : [1, 1, 1]}
-		castShadow
-		receiveShadow
-	>
-		{#if currentItemData && currentItemData.object == objectKey}
-			<HTML occlude position={object.card_offset} scale={0.5 / (object.scale || 1)} transform>
-				<ProductCard enableInfoBtn={true} id={$currentItem}></ProductCard>
-			</HTML>
-		{/if}
-		{#if object.name}
-			<Text
-				position={[0, 1.1, 0.8]}
-				rotation={[-1.57, 0, 1.57]}
-				text={object.name}
-				color="black"
-				fontSize={0.25}
-			></Text>
-		{/if}
-
-		<!-- Display each part of the model. -->
-		{#if object.model}
-			{@const model = getModel(object.model)}
-			{#await model then model}
-				{#each Object.keys(model.nodes) as node (node)}
-					<T is={model.nodes[node]} castShadow />
-				{/each}
-			{/await}
-		{:else}
-			<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
-			<T.MeshStandardMaterial color="white" />
-		{/if}
-	</T.Mesh>
+	<ObjectModel id={objectKey} />
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>

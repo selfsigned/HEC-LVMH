@@ -23,12 +23,12 @@
 			resetCameraPosition();
 			return;
 		}
-		let shelf = objects[item.shelf];
-		if (!shelf) return;
-		let rot = shelf.rot || [0, 0, 0];
+		let object = objects[item.object];
+		if (!object) return;
+		let rot = object.rot || [0, 0, 0];
 
 		cameraControls.rotateAzimuthTo(rot[1], true);
-		cameraControls.moveTo(shelf.pos[0], shelf.pos[1], shelf.pos[2], true);
+		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
 		cameraControls.rotatePolarTo(1.0, true);
 	}
 
@@ -60,14 +60,6 @@
 <T.DirectionalLight position={[10, 10, 10]} castShadow />
 <T.AmbientLight intensity={2} />
 
-<<<<<<< Updated upstream
-<!-- App shelf logic -->
-{#each Object.keys(objects) as shelfKey (shelfKey)}
-	{@const shelf = objects[shelfKey]}
-	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
-		{#if currentItemData && currentItemData.shelf == shelfKey}
-			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>
-=======
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
 	{@const object = objects[objectKey]}
@@ -80,15 +72,14 @@
 	>
 		{#if currentItemData && currentItemData.object == objectKey}
 			<HTML occlude position.y={2.5} scale={0.5} transform>
->>>>>>> Stashed changes
 				<ProductCard enableInfoBtn={true} id={$currentItem}></ProductCard>
 			</HTML>
 		{/if}
-		{#if shelf.name}
+		{#if object.name}
 			<Text
 				position={[0, 1.1, 0.8]}
 				rotation={[-1.57, 0, 1.57]}
-				text={shelf.name}
+				text={object.name}
 				color="black"
 				fontSize={0.25}
 			></Text>

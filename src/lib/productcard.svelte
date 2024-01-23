@@ -19,9 +19,9 @@
 		<h2 class="font text-md title font-bold">{itemInfo.name}</h2>
 		<h3 class="-mt-1 text-sm font-light italic">{itemInfo.category}</h3>
 		<div class="flex flex-row">
-			{#if itemInfo.shelf != null && itemInfo.shelf in $objectsData}
+			{#if itemInfo.object != null && itemInfo.object in $objectsData}
 				<div class="h-4 w-4 rounded-full bg-success"></div>
-				<div class="-mt-[0.125rem] ml-1 text-sm">{$objectsData[itemInfo.shelf].name}</div>
+				<div class="-mt-[0.125rem] ml-1 text-sm">{$objectsData[itemInfo.object].name}</div>
 			{:else}
 				<div class="h-4 w-4 rounded-full bg-warning font-light"></div>
 				<div class="-mt-[0.125rem] ml-1 text-sm">Click & Collect</div>

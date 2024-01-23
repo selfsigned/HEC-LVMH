@@ -1,8 +1,9 @@
 <script>
-	import { Text, HTML } from '@threlte/extras';
+	import { Text, HTML, useGltf } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
+	import { base } from '$app/paths';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
@@ -33,6 +34,18 @@
 
 	$: rotateToItem($currentItem);
 	$: currentItemData = $currentItem in $itemData ? $itemData[$currentItem] : null;
+
+	// This is a simple cache that prevents the same model from being loaded multiple times.
+	let model_cache = {};
+	function getModel(filename) {
+		if (filename in model_cache) {
+			return model_cache[filename];
+		}
+
+		let model = useGltf(base + '/models/' + filename);
+		model_cache[filename] = model;
+		return model;
+	}
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 12, 12]} lookAt.y={0.5}>
@@ -44,15 +57,30 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight position={[0, 0, 10]} castShadow />
-<T.AmbientLight intensity={10} />
+<T.DirectionalLight position={[10, 10, 10]} castShadow />
+<T.AmbientLight intensity={2} />
 
+<<<<<<< Updated upstream
 <!-- App shelf logic -->
 {#each Object.keys(objects) as shelfKey (shelfKey)}
 	{@const shelf = objects[shelfKey]}
 	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
 		{#if currentItemData && currentItemData.shelf == shelfKey}
 			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>
+=======
+<!-- Display the objects that have been loaded for this scene. -->
+{#each Object.keys(objects) as objectKey (objectKey)}
+	{@const object = objects[objectKey]}
+	<T.Mesh
+		position={object.pos}
+		rotation={object.rot || [0, 0, 0]}
+		scale={object.scale || [1, 1, 1]}
+		castShadow
+		receiveShadow
+	>
+		{#if currentItemData && currentItemData.object == objectKey}
+			<HTML occlude position.y={2.5} scale={0.5} transform>
+>>>>>>> Stashed changes
 				<ProductCard enableInfoBtn={true} id={$currentItem}></ProductCard>
 			</HTML>
 		{/if}
@@ -65,8 +93,19 @@
 				fontSize={0.25}
 			></Text>
 		{/if}
-		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
-		<T.MeshStandardMaterial color="grey" />
+
+		<!-- Display each part of the model. -->
+		{#if object.model}
+			{@const model = getModel(object.model)}
+			{#await model then model}
+				{#each Object.keys(model.nodes) as node (node)}
+					<T is={model.nodes[node]} />
+				{/each}
+			{/await}
+		{:else}
+			<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
+			<T.MeshStandardMaterial color="white" />
+		{/if}
 	</T.Mesh>
 {/each}
 
@@ -79,7 +118,7 @@
 </T.Mesh>
 
 <!-- Floor -->
-<T.Mesh position.y={0} receiveShadow>
-	<T.BoxGeometry args={[10, 0, 10]}></T.BoxGeometry>
+<T.Mesh position.y={-0.1} receiveShadow>
+	<T.BoxGeometry args={[10, 0.1, 10]}></T.BoxGeometry>
 	<T.MeshStandardMaterial color="white" />
 </T.Mesh>

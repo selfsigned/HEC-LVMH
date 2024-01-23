@@ -1,13 +1,13 @@
 <script>
-	import { Gizmo, Text, HTML } from '@threlte/extras';
+	import { Text, HTML } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
-	import { itemData, shelfData, currentItem } from '$lib/appstore.js';
+	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
 
 	// App logic
 	import ProductCard from '$lib/productcard.svelte';
-	let shelves = $shelfData;
 
+	let objects = $objectsData;
 	let cameraControls;
 
 	function resetCameraPosition() {
@@ -22,7 +22,7 @@
 			resetCameraPosition();
 			return;
 		}
-		let shelf = shelves[item.shelf];
+		let shelf = objects[item.shelf];
 		if (!shelf) return;
 		let rot = shelf.rot || [0, 0, 0];
 
@@ -48,8 +48,8 @@
 <T.AmbientLight intensity={10} />
 
 <!-- App shelf logic -->
-{#each Object.keys(shelves) as shelfKey (shelfKey)}
-	{@const shelf = shelves[shelfKey]}
+{#each Object.keys(objects) as shelfKey (shelfKey)}
+	{@const shelf = objects[shelfKey]}
 	<T.Mesh position={shelf.pos} rotation={shelf.rot ? shelf.rot : [0, 0, 0]} castShadow>
 		{#if currentItemData && currentItemData.shelf == shelfKey}
 			<HTML zIndexRange={[0, 100]} position.y={2.5} scale={0.5} transform>

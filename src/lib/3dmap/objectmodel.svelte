@@ -14,7 +14,6 @@
 	export let id;
 	export let cardRotation = 0;
 	export let blendColor = 0xffffff;
-	export let opacity = 1.0;
 
 	$: {
 		if (!$objectsData[id]) {
@@ -43,61 +42,45 @@
 					b: (blendColor & 0xff) / 0xff,
 					isColor: true
 				};
-
-				// Update transparency
-				if (opacity === 1.0) {
-					material.transparent = false;
-				} else {
-					material.transparent = true;
-					material.opacity = opacity;
-				}
 			}
 		}
 	}
 </script>
 
-<T.Mesh
-	position={object.pos}
-	rotation={[0, rotation, 0]}
-	scale={[scale, scale, scale]}
-	castShadow
-	receiveShadow
->
-	{#if currentItemData && currentItemData.object == id}
-		<HTML
-			occlude
-			zIndexRange={[0, 100]}
-			position={cardOffset}
-			rotation={[0, -rotation + cardRotation, 0]}
-			scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}
-			transform
-		>
-			<ProductCard enableInfoBtn={true} id={$currentItem} />
-		</HTML>
-	{/if}
-	{#if object.name}
-		<Text
-			position={textOffset}
-			rotation={[-1.57, 0, 0]}
-			text={object.name}
-			color="black"
-			fontSize={0.25 / scale}
-		></Text>
-	{/if}
-
-	<!-- Display each part of the model. -->
-	{#if object.model}
-		<!-- The randomSalt is used to prevent the GLTF renderer from caching models. This causes
+<!-- Display each part of the model. -->
+{#if object.model}
+	<!-- The randomSalt is used to prevent the GLTF renderer from caching models. This causes
 	     them to not render (or rather, to be moved wherever the model is loaded last.
 		 It's pretty weird). -->
-		<GLTF
-			castShadow
-			receiveShadow
-			url={base + '/models/' + object.model + '?salt=' + randomSalt()}
-			bind:materials
-		/>
-	{:else}
-		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
-		<T.MeshStandardMaterial color="white" />
-	{/if}
-</T.Mesh>
+	<GLTF
+		position={object.pos}
+		rotation={[0, rotation, 0]}
+		scale={[scale, scale, scale]}
+		castShadow
+		receiveShadow
+		url={base + '/models/' + object.model + '?salt=' + randomSalt()}
+		bind:materials
+	>
+		{#if currentItemData && currentItemData.object == id}
+			<HTML
+				occlude
+				zIndexRange={[0, 100]}
+				position={cardOffset}
+				rotation={[0, -rotation + cardRotation, 0]}
+				scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}
+				transform
+			>
+				<ProductCard enableInfoBtn={true} id={$currentItem} />
+			</HTML>
+		{/if}
+		{#if object.name}
+			<Text
+				position={textOffset}
+				rotation={[-1.57, 0, 0]}
+				text={object.name}
+				color="black"
+				fontSize={0.25 / scale}
+			></Text>
+		{/if}
+	</GLTF>
+{/if}

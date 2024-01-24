@@ -1,17 +1,6 @@
 <script context="module">
-	import { useGltf } from '@threlte/extras';
-	import { base } from '$app/paths';
-
-	// This is a simple cache that prevents the same model from being loaded multiple times.
-	let model_cache = {};
-	function getModel(filename) {
-		if (filename in model_cache) {
-			return model_cache[filename];
-		}
-
-		let model = useGltf(base + '/models/' + filename);
-		model_cache[filename] = model;
-		return model;
+	function randomSalt() {
+		return Math.random().toString(36).substring(2, 15);
 	}
 </script>
 
@@ -19,7 +8,8 @@
 	import { objectsData, itemData, currentItem } from '$lib/appstore.js';
 	import ProductCard from '$lib/productcard.svelte';
 	import { T } from '@threlte/core';
-	import { HTML, Text } from '@threlte/extras';
+	import { GLTF, HTML, Text } from '@threlte/extras';
+	import { base } from '$app/paths';
 
 	export let id;
 	export let cardRotation = 0;
@@ -67,12 +57,14 @@
 
 	<!-- Display each part of the model. -->
 	{#if object.model}
-		{@const model = getModel(object.model)}
-		{#await model then model}
-			{#each Object.keys(model.nodes) as node (node)}
-				<T is={model.nodes[node]} castShadow />
-			{/each}
-		{/await}
+		<!-- The randomSalt is used to prevent the GLTF renderer from caching models. This causes
+	     them to not render (or rather, to be moved wherever the model is loaded last.
+		 It's pretty weird). -->
+		<GLTF
+			castShadow
+			receiveShadow
+			url={base + '/models/' + object.model + '?salt=' + randomSalt()}
+		/>
 	{:else}
 		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>
 		<T.MeshStandardMaterial color="white" />

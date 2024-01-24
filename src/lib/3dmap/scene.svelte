@@ -2,7 +2,13 @@
 	import { Text } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
-	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
+	import {
+		itemData,
+		objectsData,
+		currentItem,
+		currentCategory,
+		categoryData
+	} from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount, setContext } from 'svelte';
 	import CustomRenderer from './customrenderer.svelte';
@@ -11,7 +17,11 @@
 	setContext('selectedMeshes', writable([]));
 
 	let objects = $objectsData;
+	let items = $itemData;
+	let categories = $categoryData;
 	let cameraControls;
+
+	$: currentCategoryData = $currentCategory ? $categoryData[$currentCategory] : null;
 
 	function resetCameraPosition(transition) {
 		cameraControls.moveTo(0, 0, 0, transition);
@@ -43,6 +53,16 @@
 	onMount(() => {
 		resetCameraPosition(false);
 	});
+
+	// Returns whether a specific object contains an item with the provided category.
+	function containsCurrentCategory(objectKey, categoryKey) {
+		if (!$currentCategory) return false;
+		for (const itemKey of Object.keys(items)) {
+			if (items[itemKey].object != objectKey) continue;
+			if (items[itemKey].categories.includes(categoryKey)) return true;
+		}
+		return false;
+	}
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 5, 12]} lookAt.y={0.5}>
@@ -63,7 +83,12 @@
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
-	<ObjectModel id={objectKey} />
+	<ObjectModel
+		selected={currentCategoryData &&
+			!currentCategoryData.hide_top &&
+			containsCurrentCategory(objectKey, $currentCategory)}
+		id={objectKey}
+	/>
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>

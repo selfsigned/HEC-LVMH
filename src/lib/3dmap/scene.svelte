@@ -4,7 +4,11 @@
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
+	import CustomRenderer from './customrenderer.svelte';
+	import { writable } from 'svelte/store';
+
+	setContext('selectedMeshes', writable([]));
 
 	let objects = $objectsData;
 	let cameraControls;
@@ -53,8 +57,9 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight position={[10, 10, 10]} castShadow />
-<T.AmbientLight intensity={2} />
+<T.DirectionalLight intensity={0.2} position={[10, 10, 10]} castShadow />
+<T.AmbientLight intensity={0.8} />
+<CustomRenderer />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}

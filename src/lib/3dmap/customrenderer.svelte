@@ -7,15 +7,15 @@
 		OutlineEffect,
 		RenderPass
 	} from 'postprocessing';
-	import { onMount } from 'svelte';
-
-	export let selectedMesh;
+	import { onMount, getContext } from 'svelte';
 
 	const { scene, renderer, camera, size, autoRender, renderStage } = useThrelte();
 
 	const composer = new EffectComposer(renderer);
 
-	function setupEffectComposer(camera, selectedMesh) {
+	let selectedMeshes = getContext('selectedMeshes');
+
+	function setupEffectComposer(camera, selectedMeshes) {
 		composer.removeAllPasses();
 		composer.addPass(new RenderPass(scene, camera));
 
@@ -23,18 +23,18 @@
 			blendFunction: BlendFunction.ALPHA,
 			edgeStrength: 100,
 			pulseSpeed: 0.0,
-			visibleEdgeColor: 0xffffff,
-			hiddenEdgeColor: 0x9900ff,
+			visibleEdgeColor: 0xff0000,
+			hiddenEdgeColor: 0xff0000,
 			xRay: true,
 			blur: true
 		});
-		if (selectedMesh !== undefined) {
-			outlineEffect.selection.add(selectedMesh);
+		for (const mesh of selectedMeshes) {
+			outlineEffect.selection.add(mesh);
 		}
 		composer.addPass(new EffectPass(camera, outlineEffect));
 	}
 
-	$: setupEffectComposer($camera, selectedMesh);
+	$: setupEffectComposer($camera, $selectedMeshes);
 	$: composer.setSize($size.width, $size.height);
 
 	onMount(() => {

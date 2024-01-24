@@ -10,9 +10,13 @@
 	import { T } from '@threlte/core';
 	import { GLTF, HTML, Text } from '@threlte/extras';
 	import { base } from '$app/paths';
+	import { getContext } from 'svelte';
 
 	export let id;
 	export let cardRotation = 0;
+	export let selected = false;
+
+	let selectedMeshes = getContext('selectedMeshes');
 
 	$: {
 		if (!$objectsData[id]) {
@@ -27,6 +31,24 @@
 	$: scale = object.scale || 1;
 	$: textOffset = object.textOffset || [0, 0, 0];
 	$: cardOffset = object.cardOffset || [0, 0, 0];
+
+	let gltfNodes;
+
+	$: {
+		if (gltfNodes) {
+			for (const nodeKey of Object.keys(gltfNodes)) {
+				const node = gltfNodes[nodeKey];
+				let index = $selectedMeshes.indexOf(node);
+				if (selected && index == -1) {
+					$selectedMeshes.push(node);
+					$selectedMeshes = $selectedMeshes;
+				} else if (!selected && index != -1) {
+					$selectedMeshes.splice(index, 1);
+					$selectedMeshes = $selectedMeshes;
+				}
+			}
+		}
+	}
 </script>
 
 <T.Mesh
@@ -66,6 +88,7 @@
 			castShadow
 			receiveShadow
 			url={base + '/models/' + object.model + '?salt=' + randomSalt()}
+			bind:nodes={gltfNodes}
 		/>
 	{:else}
 		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>

@@ -1,5 +1,5 @@
 <script>
-	import { Text } from '@threlte/extras';
+	import { Text, interactivity } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
@@ -8,6 +8,8 @@
 
 	let objects = $objectsData;
 	let cameraControls;
+
+	interactivity();
 
 	function resetCameraPosition(transition) {
 		cameraControls.moveTo(0, 0, 0, transition);

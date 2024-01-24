@@ -10,6 +10,7 @@
 	import { T } from '@threlte/core';
 	import { GLTF, HTML, Text } from '@threlte/extras';
 	import { base } from '$app/paths';
+	import { currentShelf } from '$lib/appstore.js';
 
 	export let id;
 	export let cardRotation = 0;
@@ -27,6 +28,11 @@
 	$: scale = object.scale || 1;
 	$: textOffset = object.textOffset || [0, 0, 0];
 	$: cardOffset = object.cardOffset || [0, 0, 0];
+
+	// App logic
+	function objectSelectionEvent(e, targetID) {
+		$currentShelf = $currentShelf == targetID ? null : targetID;
+	}
 </script>
 
 <T.Mesh
@@ -35,6 +41,7 @@
 	scale={[scale, scale, scale]}
 	castShadow
 	receiveShadow
+	on:click={() => objectSelectionEvent(Event, id)}
 >
 	{#if currentItemData && currentItemData.object == id}
 		<HTML

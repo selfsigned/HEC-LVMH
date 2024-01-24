@@ -61,6 +61,7 @@
 	{#if currentItemData && currentItemData.object == id}
 		<HTML
 			occlude
+			zIndexRange={[0, 100]}
 			position={cardOffset}
 			rotation={[0, -rotation + cardRotation, 0]}
 			scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}

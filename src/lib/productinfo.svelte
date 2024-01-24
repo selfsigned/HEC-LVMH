@@ -1,5 +1,6 @@
 <script>
 	import { itemData } from '$lib/appstore.js';
+	import Booking from '$lib/booking/booking.svelte';
 
 	export let id; // ID of the product to display infos of
 
@@ -10,7 +11,7 @@
 	{#if $itemData[id].categories.includes('product')}
 		<iframe class="h-full w-full" title="Sephora website" src={sephoraProductUrl + id + '.html'} />
 	{:else}
-		Imagine a super cool appointment booking page here please
+		<Booking {id} />
 	{/if}
 {:else}
 	<p>Error: {id} does not exist</p>

@@ -14,6 +14,7 @@
 	export let id;
 	export let cardRotation = 0;
 	export let blendColor = 0xffffff;
+	export let opacity = 1.0;
 
 	$: {
 		if (!$objectsData[id]) {
@@ -33,7 +34,7 @@
 
 	$: {
 		// Apply the requested color to the materials.
-		if (materials && blendColor) {
+		if (materials) {
 			for (const materialKey of Object.keys(materials)) {
 				const material = materials[materialKey];
 				material.color = {
@@ -42,6 +43,14 @@
 					b: (blendColor & 0xff) / 0xff,
 					isColor: true
 				};
+
+				// Update transparency
+				if (opacity === 1.0) {
+					material.transparent = false;
+				} else {
+					material.transparent = true;
+					material.opacity = opacity;
+				}
 			}
 		}
 	}

@@ -5,7 +5,8 @@
 		"scale": 0.5,
 		"name": "Dior",
 		"model": "MAKEUP_SHELF.glb",
-		"card_offset": [0, 7, 0]
+		"textOffset": [0, 4, 0],
+		"cardOffset": [0, 7, 0]
 	},
 	"2": {
 		"pos": [-4, 0, -4],
@@ -13,20 +14,23 @@
 		"scale": 0.5,
 		"name": "Men perfume",
 		"model": "MAKEUP_SHELF.glb",
-		"card_offset": [0, 7, 0]
+		"textOffset": [0, 4, -2],
+		"cardOffset": [0, 7, 0]
 	},
 	"3": {
 		"pos": [-3.6, 0, 2],
 		"scale": 0.5,
 		"name": "Next Big Thing",
 		"model": "MAKEUP_SHELF.glb",
-		"card_offset": [0, 7, 0]
+		"textOffset": [-1, 4, -1],
+		"cardOffset": [0, 7, 0]
 	},
 	"4": {
 		"pos": [3, 0, -2],
 		"scale": 0.5,
 		"name": "Beauty Hub",
 		"model": "MAKEUP_SHELF.glb",
-		"card_offset": [0, 7, 0]
+		"textOffset": [-1.5, 4, -1],
+		"cardOffset": [0, 7, 0]
 	}
 }

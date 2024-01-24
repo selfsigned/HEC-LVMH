@@ -5,7 +5,7 @@
 		"scale": 0.5,
 		"name": "Dior",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 4, 0],
+		"textOffset": [-0.5, 4, -1],
 		"cardOffset": [0, 7, 0]
 	},
 	"2": {
@@ -14,7 +14,7 @@
 		"scale": 0.5,
 		"name": "Men perfume",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 4, -2],
+		"textOffset": [-1.5, 4, -1],
 		"cardOffset": [0, 7, 0]
 	},
 	"3": {
@@ -22,7 +22,7 @@
 		"scale": 0.5,
 		"name": "Next Big Thing",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [-1, 4, -1],
+		"textOffset": [-1.5, 4, -1],
 		"cardOffset": [0, 7, 0]
 	},
 	"4": {

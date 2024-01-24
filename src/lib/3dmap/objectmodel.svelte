@@ -50,7 +50,7 @@
 	{#if object.name}
 		<Text
 			position={textOffset}
-			rotation={[-1.57, 0, -rotation]}
+			rotation={[-1.57, 0, 0]}
 			text={object.name}
 			color="black"
 			fontSize={0.25 / scale}

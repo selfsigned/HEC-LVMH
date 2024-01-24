@@ -36,7 +36,7 @@
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw046c217c/images/hi-res/SKU/SKU_6/71388_swatch.jpg"
 	},
 	"421404": {
-		"categories": ["product"],
+		"categories": ["product", "promo"],
 		"object": 2,
 		"name": "Sauvage",
 		"category": "Parfum Homme",
@@ -46,7 +46,7 @@
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb7fca1c2/images/hi-res/SKU/SKU_4/335956_swatch.jpg"
 	},
 	"701980": {
-		"categories": ["product", "promo", "trend"],
+		"categories": ["product", "trend"],
 		"object": null,
 		"name": "Good Girl",
 		"category": "Coffret Eau de parfum",

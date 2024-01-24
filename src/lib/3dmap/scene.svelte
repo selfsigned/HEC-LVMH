@@ -2,11 +2,20 @@
 	import { Text } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
-	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
+	import {
+		itemData,
+		objectsData,
+		currentItem,
+		categoryData,
+		currentCategory
+	} from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
 
 	let objects = $objectsData;
+	let categories = $categoryData;
+	let items = $itemData;
+
 	let cameraControls;
 
 	function resetCameraPosition(transition) {
@@ -36,6 +45,27 @@
 
 	$: rotateToItem($currentItem);
 
+	function doesObjectContrainsCategory(objectId, categoryId) {
+		if (!categoryId) return false;
+
+		// If the object does not exist, it cannot contain a category.
+		if (!objects[objectId]) return false;
+
+		// Otherwise, iterate all items until one is found that matches the category.
+		for (const itemId of Object.keys(items)) {
+			let item = items[itemId];
+
+			// If the item is not on the object, skip it.
+			if (item.object != objectId) continue;
+
+			// If the item has the category, return true.
+			if (item.categories.includes(categoryId)) return true;
+		}
+
+		// Not found.
+		return false;
+	}
+
 	onMount(() => {
 		resetCameraPosition(false);
 	});
@@ -53,12 +83,16 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight position={[10, 10, 10]} castShadow />
+<T.DirectionalLight intensity={3} position={[10, 10, 10]} castShadow />
 <T.AmbientLight intensity={2} />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
-	<ObjectModel id={objectKey} />
+	{@const includesCategory = doesObjectContrainsCategory(objectKey, $currentCategory)}
+	<ObjectModel
+		blendColor={categories[$currentCategory].hide_top || !includesCategory ? 0xffffff : 0x444444}
+		id={objectKey}
+	/>
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>
@@ -70,7 +104,7 @@
 </T.Mesh>
 
 <!-- Floor -->
-<T.Mesh position.y={-0.1} receiveShadow>
-	<T.BoxGeometry args={[10, 0.1, 10]}></T.BoxGeometry>
+<T.Mesh position.y={-0.2} receiveShadow>
+	<T.BoxGeometry args={[10, 0.3, 10]}></T.BoxGeometry>
 	<T.MeshStandardMaterial color="white" />
 </T.Mesh>

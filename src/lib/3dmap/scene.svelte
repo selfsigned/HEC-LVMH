@@ -4,13 +4,16 @@
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
+	import { onMount } from 'svelte';
 
 	let objects = $objectsData;
 	let cameraControls;
 
-	function resetCameraPosition() {
-		cameraControls.moveTo(0, 0, 0, true);
-		cameraControls.rotateAzimuthTo(0, true);
+	function resetCameraPosition(transition) {
+		cameraControls.moveTo(0, 0, 0, transition);
+		cameraControls.rotateAzimuthTo(0, transition);
+		cameraControls.rotatePolarTo(0.5, transition);
+		cameraControls.dollyTo(20, transition);
 	}
 
 	function rotateToItem(itemId) {
@@ -18,7 +21,7 @@
 
 		let item = $itemData[itemId];
 		if (!item) {
-			resetCameraPosition();
+			resetCameraPosition(true);
 			return;
 		}
 
@@ -26,20 +29,27 @@
 		if (!object) return;
 
 		cameraControls.rotateAzimuthTo(0.0, true);
-		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
 		cameraControls.rotatePolarTo(1.0, true);
+		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
+		cameraControls.dollyTo(15, true);
 	}
 
 	$: rotateToItem($currentItem);
+
+	onMount(() => {
+		resetCameraPosition(false);
+	});
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 12, 12]} lookAt.y={0.5}>
+<T.PerspectiveCamera makeDefault position={[0, 5, 12]} lookAt.y={0.5}>
 	<CameraControls
 		on:create={({ ref }) => {
 			cameraControls = ref;
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
 		draggingSmoothTime={0.2}
+		minDistance={5}
+		maxDistance={50}
 	/>
 </T.PerspectiveCamera>
 

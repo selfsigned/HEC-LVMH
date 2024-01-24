@@ -13,6 +13,7 @@
 
 	export let id;
 	export let cardRotation = 0;
+	export let blendColor = 0xffffff;
 
 	$: {
 		if (!$objectsData[id]) {
@@ -27,6 +28,23 @@
 	$: scale = object.scale || 1;
 	$: textOffset = object.textOffset || [0, 0, 0];
 	$: cardOffset = object.cardOffset || [0, 0, 0];
+
+	let materials;
+
+	$: {
+		// Apply the requested color to the materials.
+		if (materials && blendColor) {
+			for (const materialKey of Object.keys(materials)) {
+				const material = materials[materialKey];
+				material.color = {
+					r: ((blendColor >> 16) & 0xff) / 0xff,
+					g: ((blendColor >> 8) & 0xff) / 0xff,
+					b: (blendColor & 0xff) / 0xff,
+					isColor: true
+				};
+			}
+		}
+	}
 </script>
 
 <T.Mesh
@@ -67,6 +85,7 @@
 			castShadow
 			receiveShadow
 			url={base + '/models/' + object.model + '?salt=' + randomSalt()}
+			bind:materials
 		/>
 	{:else}
 		<T.BoxGeometry args={[1, 2, 2]}></T.BoxGeometry>

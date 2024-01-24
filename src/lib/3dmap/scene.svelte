@@ -58,7 +58,7 @@
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
-	<ObjectModel id={objectKey} />
+	<ObjectModel blendColor={Math.random() * 0xffffff} id={objectKey} />
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>

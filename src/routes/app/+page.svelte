@@ -164,19 +164,19 @@
 				{/if}
 			{/each}
 		</div>
-		<div class="absolute bottom-5 right-5 z-20">
-			{#if cameraMoved}
-				<btn
-					class="btn btn-ghost rounded-full shadow-sm
-					backdrop-blur-[6px] hover:shadow-xl"
-					role="button"
-					on:click={() => threeMap.resetCamera()}
-					on:keypress={() => threeMap.resetCamera()}
-					tabindex="0"><Icon icon={'system-uicons:reset'} height="22px" />Reset Camera</btn
-				>
-			{/if}
-		</div>
 		<div class="relative w-full grow">
+			<div class="absolute bottom-5 right-5 z-20">
+				{#if cameraMoved}
+					<btn
+						class="btn btn-ghost rounded-full shadow-sm
+						backdrop-blur-[6px] hover:shadow-xl"
+						role="button"
+						on:click={() => threeMap.resetCamera()}
+						on:keypress={() => threeMap.resetCamera()}
+						tabindex="0"><Icon icon={'mdi:view-refresh'} height="22px" /></btn
+					>
+				{/if}
+			</div>
 			<ThreeMap bind:cameraMoved bind:this={threeMap} />
 		</div>
 	</div>

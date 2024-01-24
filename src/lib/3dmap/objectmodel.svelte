@@ -7,9 +7,11 @@
 <script>
 	import { objectsData, itemData, currentItem } from '$lib/appstore.js';
 	import ProductCard from '$lib/productcard.svelte';
-	import { T } from '@threlte/core';
+	import { useThrelte } from '@threlte/core';
 	import { GLTF, HTML, Text } from '@threlte/extras';
 	import { base } from '$app/paths';
+
+	const { invalidate } = useThrelte();
 
 	export let id;
 	export let cardRotation = 0;
@@ -43,6 +45,8 @@
 					isColor: true
 				};
 			}
+
+			invalidate();
 		}
 	}
 </script>

@@ -32,7 +32,7 @@
 			if (getControls().update(delta)) invalidate();
 		},
 		{
-			autoInvalidate: false
+			autoInvalidate: true
 		}
 	);
 

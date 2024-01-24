@@ -36,7 +36,7 @@
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw046c217c/images/hi-res/SKU/SKU_6/71388_swatch.jpg"
 	},
 	"421404": {
-		"categories": ["product"],
+		"categories": ["product", "promo"],
 		"object": 2,
 		"name": "Sauvage",
 		"category": "Parfum Homme",

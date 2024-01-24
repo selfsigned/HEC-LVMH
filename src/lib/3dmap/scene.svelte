@@ -4,6 +4,7 @@
 	import CameraControls from './cameracontrols.svelte';
 	import { itemData, objectsData, currentItem } from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
+	import CustomRenderer from './customrenderer.svelte';
 
 	let objects = $objectsData;
 	let cameraControls;
@@ -45,6 +46,7 @@
 
 <T.DirectionalLight position={[10, 10, 10]} castShadow />
 <T.AmbientLight intensity={2} />
+<CustomRenderer />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}

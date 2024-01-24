@@ -1,12 +1,11 @@
 <script>
 	import { base } from '$app/paths';
-	import Icon from '@iconify/svelte';
+	import Logo from '$lib/logo.svelte';
 </script>
 
 <div class="flex h-[calc(100dvh)] flex-col bg-base-100 bg-gradient-to-r to-base-300">
 	<h2 class="text-bold m-5 flex text-xl">
-		<Icon class="mt-1" icon="tdesign:map-3d" />
-		storecompanion
+		<Logo class="-mt-1" />store<span class="font-thin">companion</span>
 	</h2>
 	<div class="hero flex-1">
 		<div class="hero-content text-center">

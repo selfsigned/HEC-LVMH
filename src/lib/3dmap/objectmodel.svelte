@@ -25,6 +25,8 @@
 
 	$: rotation = object.rot ? (object.rot / 180) * Math.PI : 0;
 	$: scale = object.scale || 1;
+	$: textOffset = object.textOffset || [0, 0, 0];
+	$: cardOffset = object.cardOffset || [0, 0, 0];
 </script>
 
 <T.Mesh
@@ -37,7 +39,7 @@
 	{#if currentItemData && currentItemData.object == id}
 		<HTML
 			occlude
-			position={object.card_offset}
+			position={cardOffset}
 			rotation={[0, -rotation + cardRotation, 0]}
 			scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}
 			transform
@@ -47,11 +49,11 @@
 	{/if}
 	{#if object.name}
 		<Text
-			position={[0, 1.1, 0.8]}
-			rotation={[-1.57, 0, 1.57]}
+			position={textOffset}
+			rotation={[-1.57, 0, 0]}
 			text={object.name}
 			color="black"
-			fontSize={0.25}
+			fontSize={0.25 / scale}
 		></Text>
 	{/if}
 

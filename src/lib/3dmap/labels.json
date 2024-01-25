@@ -1,0 +1,95 @@
+[
+	{
+		"text": "Parfum Femmes",
+		"position": [-65, 15, -28],
+		"rotation": [-1.57, 0, 1.57],
+		"fontSize": 6
+	},
+	{
+		"text": "Parfum Hommes",
+		"position": [66, 15, -80],
+		"rotation": [-1.57, 0, -1.57],
+		"fontSize": 6
+	},
+	{
+		"text": "Too Faced",
+		"position": [-20, 8, -34]
+	},
+	{
+		"text": "Huda Beauty",
+		"position": [-20, 8, -28]
+	},
+	{
+		"text": "Rare Beauty",
+		"position": [-20, 8, -28],
+		"rotation": [-1.57, 0, 1.57],
+		"fontSize": 2
+	},
+	{
+		"text": "Beauty\nHub",
+		"position": [-22, 12, -45]
+	},
+	{
+		"text": "Tarte",
+		"position": [-45, 8, -66],
+		"rotation": [-1.57, 0, 1.57],
+		"fontSize": 2
+	},
+	{
+		"text": "Dior",
+		"position": [-25, 8, -64],
+		"fontSize": 6
+	},
+	{
+		"text": "Fenty Beauty",
+		"position": [-18, 8, -62],
+		"rotation": [-1.57, 0, 1.57],
+		"fontSize": 2
+	},
+	{
+		"text": "Coffrets\nen promo",
+		"position": [-21, 8, -80],
+		"rotation": [-1.57, 0, 1.57],
+		"fontSize": 3
+	},
+	{
+		"text": "Sephora Collection",
+		"position": [-13, 8, -105],
+		"fontSize": 4
+	},
+	{
+		"text": "Clarins",
+		"position": [25, 8, -15]
+	},
+	{
+		"text": "Skincare",
+		"position": [36, 8, -32]
+	},
+	{
+		"text": "Beauty\nHub",
+		"position": [30, 12, -45]
+	},
+	{
+		"text": "Sephora",
+		"position": [41, 8, -64],
+		"fontSize": 5
+	},
+	{
+		"text": "Hot on\nsocial media",
+		"position": [41, 8, -80],
+		"fontSize": 4
+	},
+	{
+		"text": "Séphora",
+		"position": [15, 30, 30],
+		"rotation": [0, 3.14, 0],
+		"fontSize": 8,
+		"color": "gray"
+	},
+	{
+		"text": "Entrance",
+		"position": [15, 0, -110],
+		"fontSize": 8,
+		"color": "gray"
+	}
+]

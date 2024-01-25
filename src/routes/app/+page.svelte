@@ -74,6 +74,12 @@
 		}
 	}
 
+	$: {
+		if ($currentObject) {
+			searchInput = '';
+		}
+	}
+
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
 			$currentItem = !$currentItem ? activeProducts[0] : null;

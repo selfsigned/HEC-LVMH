@@ -53,6 +53,7 @@
 
 	// App logic
 	function objectSelectionEvent(e, targetID) {
+		$currentItem = null;
 		if ($currentObject != null) {
 			$currentObject = null;
 			$currentCategory = 'trend'; // hack

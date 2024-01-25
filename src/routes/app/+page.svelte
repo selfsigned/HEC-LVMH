@@ -101,7 +101,7 @@
 <div class="flex h-full flex-col-reverse overflow-hidden sm:flex-row">
 	<!-- Product sidebar -->
 	<div
-		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto rounded-r-xl shadow-sm sm:h-full sm:bg-base-200"
+		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto overflow-x-hidden rounded-r-xl shadow-sm sm:h-full sm:w-[400px] sm:bg-base-200"
 	>
 		<!-- Sidebar label -->
 		{#if $currentCategory in categories}

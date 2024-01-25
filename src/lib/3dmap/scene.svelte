@@ -1,5 +1,5 @@
 <script>
-	import { Text, interactivity } from '@threlte/extras';
+	import { GLTF, interactivity } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import {
@@ -12,6 +12,7 @@
 	} from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	let objects = $objectsData;
 	let categories = $categoryData;
@@ -23,10 +24,10 @@
 	export let cameraMoved = false;
 
 	function resetCameraPosition(transition) {
-		cameraControls.moveTo(0, 0, 0, transition);
-		cameraControls.rotateAzimuthTo(0, transition);
+		cameraControls.moveTo(0, 0, -50, transition);
+		cameraControls.rotateAzimuthTo(Math.PI, transition);
 		cameraControls.rotatePolarTo(0.5, transition);
-		cameraControls.dollyTo(20, transition);
+		cameraControls.dollyTo(180, transition);
 	}
 
 	export function resetCamera() {
@@ -45,10 +46,16 @@
 		let object = objects[item.object];
 		if (!object) return;
 
-		cameraControls.rotateAzimuthTo(0.0, true);
-		cameraControls.rotatePolarTo(1.0, true);
-		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
-		cameraControls.dollyTo(15, true);
+		const newPos = [
+			object.pos[0] + object.cardOffset[0],
+			object.pos[1] + object.cardOffset[1],
+			object.pos[2] + object.cardOffset[2]
+		];
+
+		cameraControls.rotateAzimuthTo(Math.PI, true);
+		cameraControls.rotatePolarTo(1.2, true);
+		cameraControls.moveTo(newPos[0], newPos[1], newPos[2], true);
+		cameraControls.dollyTo(34, true);
 	}
 
 	$: rotateToItem($currentItem);
@@ -89,49 +96,46 @@
 	onMount(() => {
 		resetCameraPosition(false);
 	});
+
+	import { writable } from 'svelte/store';
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 5, 12]} lookAt.y={0.5}>
+<!-- Camera -->
+<T.PerspectiveCamera makeDefault position={[0, 5, 50]}>
 	<CameraControls
 		on:create={({ ref }) => {
 			cameraControls = ref;
 		}}
 		on:update={() => {
 			const curPos = cameraControls.getPosition();
-			const offset = [curPos.x - 0, curPos.y - 17.551651237807455, curPos.z - 9.58851077208406];
+			const offset = [
+				curPos.x - 1.0568285123060394e-14,
+				curPos.y - 157.9648611402671,
+				curPos.z + 136.29659694875653
+			];
 			const dist = offset[0] * offset[0] + offset[1] * offset[1] + offset[2] * offset[2];
 			cameraMoved = dist >= 0.1;
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
-		draggingSmoothTime={0.2}
-		minDistance={5}
-		maxDistance={50}
+		draggingSmoothTime={0.26}
+		minDistance={10}
+		maxDistance={200}
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight intensity={3} position={[10, 10, 10]} castShadow />
-<T.AmbientLight intensity={2} />
+<!-- Lighting -->
+<T.DirectionalLight intensity={4} position={[5, 20, -10]} castShadow />
+<T.AmbientLight intensity={3} />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
 	<ObjectModel
 		blendColor={shouldObjectBeSelected(objectKey, $currentObject, $currentCategory)
-			? 0x444444
-			: 0xffffff}
+			? [50, 50, 100]
+			: [255, 255, 255]}
 		id={objectKey}
 	/>
 {/each}
 
-<T.Mesh position.z={-5} position.y={3}>
-	<Text text={'Sephora'} fontSize={1}></Text>
-</T.Mesh>
-
-<T.Mesh position={[-1, 0, 5]} rotation={[-1.57, 0, 0]}>
-	<Text text={'Entrance'} fontSize={0.5}></Text>
-</T.Mesh>
-
 <!-- Floor -->
-<T.Mesh position.y={-0.2} receiveShadow>
-	<T.BoxGeometry args={[10, 0.3, 10]}></T.BoxGeometry>
-	<T.MeshStandardMaterial color="white" />
-</T.Mesh>
+<GLTF url={base + '/models/base.glb'} rotation={[0, 1.57, 0]} />

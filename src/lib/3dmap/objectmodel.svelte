@@ -16,7 +16,7 @@
 
 	export let id;
 	export let cardRotation = 0;
-	export let blendColor = 0xffffff;
+	export let blendColor = null;
 
 	$: {
 		if (!$objectsData[id]) {
@@ -38,11 +38,10 @@
 		// Apply the requested color to the materials.
 		if (materials) {
 			for (const materialKey of Object.keys(materials)) {
-				const material = materials[materialKey];
-				material.color = {
-					r: ((blendColor >> 16) & 0xff) / 0xff,
-					g: ((blendColor >> 8) & 0xff) / 0xff,
-					b: (blendColor & 0xff) / 0xff,
+				materials[materialKey].color = {
+					r: blendColor[0] / 255,
+					g: blendColor[1] / 255,
+					b: blendColor[2] / 255,
 					isColor: true
 				};
 			}
@@ -84,21 +83,12 @@
 				occlude
 				zIndexRange={[0, 100]}
 				position={cardOffset}
-				rotation={[0, -rotation + cardRotation, 0]}
-				scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}
+				rotation={[0, -rotation + cardRotation + Math.PI, 0]}
+				scale={[1.5 / scale, 1.5 / scale, 1.5 / scale]}
 				transform
 			>
-				<ProductCard enableInfoBtn={true} id={$currentItem} />
+				<ProductCard enableInfoBtn={true} transparent id={$currentItem} />
 			</HTML>
-		{/if}
-		{#if object.name}
-			<Text
-				position={textOffset}
-				rotation={[-1.57, 0, 0]}
-				text={object.name}
-				color="black"
-				fontSize={0.25 / scale}
-			></Text>
 		{/if}
 	</GLTF>
 {/if}

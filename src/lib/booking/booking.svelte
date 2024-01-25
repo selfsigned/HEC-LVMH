@@ -18,7 +18,6 @@
 	let selectedHour = null;
 	function selectHour(e, hour) {
 		selectedHour = hour;
-		console.log(hour);
 	}
 
 	let date = new Date();

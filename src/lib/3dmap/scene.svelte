@@ -96,6 +96,8 @@
 	onMount(() => {
 		resetCameraPosition(false);
 	});
+
+	import { writable } from 'svelte/store';
 </script>
 
 <!-- Camera -->
@@ -106,7 +108,6 @@
 		}}
 		on:update={() => {
 			const curPos = cameraControls.getPosition();
-			console.log(curPos);
 			const offset = [
 				curPos.x - 1.0568285123060394e-14,
 				curPos.y - 157.9648611402671,
@@ -116,7 +117,7 @@
 			cameraMoved = dist >= 0.1;
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
-		draggingSmoothTime={0.2}
+		draggingSmoothTime={0.26}
 		minDistance={10}
 		maxDistance={200}
 	/>
@@ -130,8 +131,8 @@
 {#each Object.keys(objects) as objectKey (objectKey)}
 	<ObjectModel
 		blendColor={shouldObjectBeSelected(objectKey, $currentObject, $currentCategory)
-			? null
-			: 0x444444}
+			? [50, 50, 100]
+			: [255, 255, 255]}
 		id={objectKey}
 	/>
 {/each}

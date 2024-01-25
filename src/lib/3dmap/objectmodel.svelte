@@ -16,7 +16,7 @@
 
 	export let id;
 	export let cardRotation = 0;
-	export let blendColor = 0xffffff;
+	export let blendColor = null;
 
 	$: {
 		if (!$objectsData[id]) {
@@ -38,17 +38,12 @@
 		// Apply the requested color to the materials.
 		if (materials) {
 			for (const materialKey of Object.keys(materials)) {
-				const material = materials[materialKey];
-				if (blendColor) {
-					material.color = {
-						r: ((blendColor >> 16) & 0xff) / 0xff,
-						g: ((blendColor >> 8) & 0xff) / 0xff,
-						b: (blendColor & 0xff) / 0xff,
-						isColor: true
-					};
-				} else {
-					material.color = null;
-				}
+				materials[materialKey].color = {
+					r: blendColor[0] / 255,
+					g: blendColor[1] / 255,
+					b: blendColor[2] / 255,
+					isColor: true
+				};
 			}
 
 			invalidate();

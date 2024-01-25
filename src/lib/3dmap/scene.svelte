@@ -92,7 +92,12 @@
 		}}
 		on:update={() => {
 			const curPos = cameraControls.getPosition();
-			const offset = [curPos.x - 0, curPos.y - 157.9648611402671, curPos.z - 46.296596948756545];
+			console.log(curPos);
+			const offset = [
+				curPos.x - 1.0568285123060394e-14,
+				curPos.y - 157.9648611402671,
+				curPos.z + 136.29659694875653
+			];
 			const dist = offset[0] * offset[0] + offset[1] * offset[1] + offset[2] * offset[2];
 			cameraMoved = dist >= 0.1;
 		}}

@@ -50,7 +50,7 @@
 			object.pos[2] + object.cardOffset[2]
 		];
 
-		cameraControls.rotateAzimuthTo(0.0, true);
+		cameraControls.rotateAzimuthTo(Math.PI, true);
 		cameraControls.rotatePolarTo(1.2, true);
 		cameraControls.moveTo(newPos[0], newPos[1], newPos[2], true);
 		cameraControls.dollyTo(34, true);

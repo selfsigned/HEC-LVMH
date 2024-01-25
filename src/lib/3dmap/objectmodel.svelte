@@ -74,7 +74,7 @@
 				occlude
 				zIndexRange={[0, 100]}
 				position={cardOffset}
-				rotation={[0, -rotation + cardRotation, 0]}
+				rotation={[0, -rotation + cardRotation + Math.PI, 0]}
 				scale={[1.5 / scale, 1.5 / scale, 1.5 / scale]}
 				transform
 			>

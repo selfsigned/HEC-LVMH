@@ -22,10 +22,10 @@
 	export let cameraMoved = false;
 
 	function resetCameraPosition(transition) {
-		cameraControls.moveTo(0, 0, 0, transition);
+		cameraControls.moveTo(0, 0, -40, transition);
 		cameraControls.rotateAzimuthTo(0, transition);
 		cameraControls.rotatePolarTo(0.5, transition);
-		cameraControls.dollyTo(20, transition);
+		cameraControls.dollyTo(180, transition);
 	}
 
 	export function resetCamera() {
@@ -47,7 +47,7 @@
 		cameraControls.rotateAzimuthTo(0.0, true);
 		cameraControls.rotatePolarTo(1.0, true);
 		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
-		cameraControls.dollyTo(15, true);
+		cameraControls.dollyTo(30, true);
 	}
 
 	$: rotateToItem($currentItem);
@@ -91,8 +91,8 @@
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
 		draggingSmoothTime={0.2}
-		minDistance={5}
-		maxDistance={50}
+		minDistance={10}
+		maxDistance={200}
 	/>
 </T.PerspectiveCamera>
 
@@ -102,10 +102,11 @@
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
 	{@const includesCategory = doesObjectContrainsCategory(objectKey, $currentCategory)}
-	<ObjectModel
+	<!-- <ObjectModel
 		blendColor={categories[$currentCategory].hide_top || !includesCategory ? 0xffffff : 0x444444}
 		id={objectKey}
-	/>
+	/> -->
+	<ObjectModel id={objectKey} blendColor={0xff00ff} />
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>
@@ -117,4 +118,4 @@
 </T.Mesh>
 
 <!-- Floor -->
-<GLTF url={base + '/models/base.glb'} />
+<GLTF url={base + '/models/base.glb'} rotation={[0, 1.57, 0]} />

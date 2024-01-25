@@ -32,5 +32,330 @@
 		"model": "MAKEUP_SHELF.glb",
 		"textOffset": [-1.5, 4, -1],
 		"cardOffset": [0, 7, 0]
+	},
+
+	"101": {
+		"pos": [-40.4, 0, -17.8],
+		"rot": 90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"102": {
+		"pos": [-43.8, 0, -17.8],
+		"rot": -90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"103": {
+		"pos": [-19.5, 0, -16.2],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"104": {
+		"pos": [-19.5, 0, -19.7],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"105": {
+		"pos": [20.5, 0, -16.2],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"106": {
+		"pos": [20.5, 0, -19.7],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"107": {
+		"pos": [34.5, 0, -16.2],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"108": {
+		"pos": [34.5, 0, -19.7],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"109": {
+		"pos": [42.5, 0, -16.2],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"110": {
+		"pos": [42.5, 0, -19.7],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"111": {
+		"pos": [-32.0, 0, -31.8],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"112": {
+		"pos": [-32.0, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"113": {
+		"pos": [-23.8, 0, -31.8],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"114": {
+		"pos": [-23.8, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"115": {
+		"pos": [-18.0, 0, -33.4],
+		"rot": 90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"116": {
+		"pos": [18.3, 0, -33.4],
+		"rot": -90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"117": {
+		"pos": [24.2, 0, -31.8],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"118": {
+		"pos": [24.2, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"119": {
+		"pos": [32.4, 0, -31.8],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"120": {
+		"pos": [32.4, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"121": {
+		"pos": [40.6, 0, -31.8],
+		"rot": 0,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"122": {
+		"pos": [40.6, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"123": {
+		"pos": [40.6, 0, -35.2],
+		"rot": 180,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"124": {
+		"pos": [45.9, 0, -33.4],
+		"rot": 90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"125": {
+		"pos": [-44.2, 0, -49.6],
+		"rot": -90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"126": {
+		"pos": [-40.6, 0, -49.6],
+		"rot": 90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"127": {
+		"pos": [-28.8, -1, -45.0],
+		"rot": 180,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"128": {
+		"pos": [-23.8, -1, -45.0],
+		"rot": 180,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"129": {
+		"pos": [-23.8, -1, -55.5],
+		"rot": 0,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"130": {
+		"pos": [-28.8, -1, -55.5],
+		"rot": 0,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"131": {
+		"pos": [24.2, -1, -45.0],
+		"rot": 180,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"132": {
+		"pos": [29.5, -1, -45.0],
+		"rot": 180,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"133": {
+		"pos": [29.5, -1, -55.5],
+		"rot": 0,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"134": {
+		"pos": [24.2, -1, -55.5],
+		"rot": 0,
+		"scale": 1.6,
+		"name": "Unknown",
+		"model": "SHELF_HUB.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"135": {
+		"pos": [42.1, 0, -49.6],
+		"rot": -90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
+	},
+	"136": {
+		"pos": [45.7, 0, -49.6],
+		"rot": 90,
+		"scale": 1.8,
+		"name": "Unknown",
+		"model": "MAKEUP_SHELF.glb",
+		"textOffset": [0, 8, -1],
+		"cardOffset": [0, 14, 0]
 	}
 }

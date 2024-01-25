@@ -27,11 +27,11 @@
 				<div class="-mt-[0.125rem] ml-1 text-sm">Click & Collect</div>
 			{/if}
 		</div>
-		<!-- {#if itemInfo.promo > 0}
+		{#if itemInfo.promo > 0}
 			<div class="text-error">
 				-{itemInfo.promo}%
 			</div>
-		{/if} -->
+		{/if}
 		{#if enableInfoBtn}
 			<btn
 				class="btn"

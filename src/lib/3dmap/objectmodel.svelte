@@ -10,7 +10,7 @@
 	import { T } from '@threlte/core';
 	import { GLTF, HTML, Text } from '@threlte/extras';
 	import { base } from '$app/paths';
-	import { currentShelf } from '$lib/appstore.js';
+	import { currentObject, currentCategory } from '$lib/appstore.js';
 
 	export let id;
 	export let cardRotation = 0;
@@ -31,7 +31,13 @@
 
 	// App logic
 	function objectSelectionEvent(e, targetID) {
-		$currentShelf = $currentShelf == targetID ? null : targetID;
+		if ($currentObject != null) {
+			$currentObject = null;
+			$currentCategory = 'trend'; // hack
+		} else {
+			$currentObject = targetID;
+			$currentCategory = 'product';
+		}
 	}
 </script>
 

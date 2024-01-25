@@ -26,8 +26,8 @@
 		"fontSize": 2
 	},
 	{
-		"text": "Beauty Hub",
-		"position": [-18, 12, -50]
+		"text": "Beauty\nHub",
+		"position": [-22, 12, -45]
 	},
 	{
 		"text": "Tarte",
@@ -63,11 +63,11 @@
 	},
 	{
 		"text": "Skincare",
-		"position": [36, 8, -34]
+		"position": [36, 8, -32]
 	},
 	{
-		"text": "Beauty Hub",
-		"position": [34, 12, -50]
+		"text": "Beauty\nHub",
+		"position": [30, 12, -45]
 	},
 	{
 		"text": "Sephora",

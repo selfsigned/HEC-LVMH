@@ -149,5 +149,5 @@
 	{@const scale = label.scale || [1, 1, 1]}
 	{@const color = label.color || 'black'}
 	{@const rotation = label.rotation || [-1.57, 0, Math.PI]}
-	<Text {text} {fontSize} {position} {scale} {color} {rotation} />
+	<Text {text} {fontSize} {position} {scale} {color} {rotation} fillOpacity={0.25} />
 {/each}

@@ -22,8 +22,8 @@
 	export let cameraMoved = false;
 
 	function resetCameraPosition(transition) {
-		cameraControls.moveTo(0, 0, -40, transition);
-		cameraControls.rotateAzimuthTo(0, transition);
+		cameraControls.moveTo(0, 0, -50, transition);
+		cameraControls.rotateAzimuthTo(Math.PI, transition);
 		cameraControls.rotatePolarTo(0.5, transition);
 		cameraControls.dollyTo(180, transition);
 	}
@@ -78,14 +78,14 @@
 	});
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 5, 12]} lookAt.y={0.5}>
+<T.PerspectiveCamera makeDefault position={[0, 5, 50]}>
 	<CameraControls
 		on:create={({ ref }) => {
 			cameraControls = ref;
 		}}
 		on:update={() => {
 			const curPos = cameraControls.getPosition();
-			const offset = [curPos.x - 0, curPos.y - 17.551651237807455, curPos.z - 9.58851077208406];
+			const offset = [curPos.x - 0, curPos.y - 157.9648611402671, curPos.z - 46.296596948756545];
 			const dist = offset[0] * offset[0] + offset[1] * offset[1] + offset[2] * offset[2];
 			cameraMoved = dist >= 0.1;
 		}}
@@ -102,11 +102,10 @@
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
 	{@const includesCategory = doesObjectContrainsCategory(objectKey, $currentCategory)}
-	<!-- <ObjectModel
-		blendColor={categories[$currentCategory].hide_top || !includesCategory ? 0xffffff : 0x444444}
+	<ObjectModel
+		blendColor={categories[$currentCategory].hide_top || !includesCategory ? null : 0x444444}
 		id={objectKey}
-	/> -->
-	<ObjectModel id={objectKey} blendColor={0xff00ff} />
+	/>
 {/each}
 
 <T.Mesh position.z={-5} position.y={3}>

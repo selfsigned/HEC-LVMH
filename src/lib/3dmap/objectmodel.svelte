@@ -38,12 +38,16 @@
 		if (materials) {
 			for (const materialKey of Object.keys(materials)) {
 				const material = materials[materialKey];
-				material.color = {
-					r: ((blendColor >> 16) & 0xff) / 0xff,
-					g: ((blendColor >> 8) & 0xff) / 0xff,
-					b: (blendColor & 0xff) / 0xff,
-					isColor: true
-				};
+				if (blendColor) {
+					material.color = {
+						r: ((blendColor >> 16) & 0xff) / 0xff,
+						g: ((blendColor >> 8) & 0xff) / 0xff,
+						b: (blendColor & 0xff) / 0xff,
+						isColor: true
+					};
+				} else {
+					material.color = null;
+				}
 			}
 
 			invalidate();

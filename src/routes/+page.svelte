@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex h-[calc(100dvh)] flex-col bg-base-100 bg-gradient-to-r to-base-300">
-	<h2 class="text-bold m-5 flex text-xl">
+	<h2 class="text-bold m-5 flex text-2xl">
 		<Logo class="-mt-1" />store<span class="font-thin">companion</span>
 	</h2>
 	<div class="hero flex-1">
@@ -16,8 +16,8 @@
 					Your Store,<br />Your World
 				</h1>
 				<p class="py-6">
-					Unlock a new era of personalized shopping with storecompanion - Create your store's
-					digital twin to make finding items yesterday's problem and get customer hooked.
+					Pioneer a new era of augmented shopping with Storecompanion - the digital twin that will
+					make your customers’ experience richer and smoother.
 				</p>
 				<div>
 					<a class="btn mr-2" href="mailto:sales@storecompanion.xyz">Contact Us</a>

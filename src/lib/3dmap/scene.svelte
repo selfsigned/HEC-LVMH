@@ -12,6 +12,35 @@
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
 
+	import { MMDLoader } from 'three/addons/loaders/MMDLoader.js';
+	import { MMDAnimationHelper } from 'three/addons/animation/MMDAnimationHelper.js';
+	// Instantiate a helper
+
+	import { base } from '$app/paths';
+	import { Object3D } from 'three';
+	let mmdT;
+	const helper = new MMDAnimationHelper();
+	new MMDLoader().loadWithAnimation(
+		base + '/mmd/miku_v2.pmd',
+		base + '/mmd/wavefile_v2.vmd',
+		function (mmd) {
+			helper.add(mmd.mesh, {
+				animation: mmd.animation,
+				physics: true
+			});
+			mmdT.add(mmd.mesh);
+			new THREE.AudioLoader().load({ base } + '/mmd/song.mp3', function (buffer) {
+				const listener = new THREE.AudioListener();
+				const audio = new THREE.Audio(listener).setBuffer(buffer);
+				listener.position.z = 1;
+				mmdT.add(audio);
+				mmdT.add(listener);
+			});
+		}
+	);
+	// requestAnimationFrame('lol');
+	// render;
+
 	let objects = $objectsData;
 	let categories = $categoryData;
 	let items = $itemData;
@@ -95,8 +124,10 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight intensity={3} position={[10, 10, 10]} castShadow />
+<T.DirectionalLight intensity={3} position={[10, 10, 10]} />
 <T.AmbientLight intensity={2} />
+
+<T is={Object3D} bind:this={mmdT} />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}

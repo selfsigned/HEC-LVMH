@@ -1,5 +1,5 @@
 <script>
-	import { Text } from '@threlte/extras';
+	import { GLTF, Text } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import {
@@ -11,6 +11,7 @@
 	} from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	let objects = $objectsData;
 	let categories = $categoryData;
@@ -116,7 +117,4 @@
 </T.Mesh>
 
 <!-- Floor -->
-<T.Mesh position.y={-0.2} receiveShadow>
-	<T.BoxGeometry args={[10, 0.3, 10]}></T.BoxGeometry>
-	<T.MeshStandardMaterial color="white" />
-</T.Mesh>
+<GLTF url={base + '/models/base.glb'} />

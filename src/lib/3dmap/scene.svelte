@@ -1,9 +1,5 @@
 <script>
-<<<<<<< HEAD
 	import { GLTF, interactivity, Text } from '@threlte/extras';
-=======
-	import { GLTF, interactivity } from '@threlte/extras';
->>>>>>> b73777035a9199b8a683365c7c6ea9853f429e6f
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import {
@@ -17,10 +13,7 @@
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
-<<<<<<< HEAD
 	import labelsList from './labels.json';
-=======
->>>>>>> b73777035a9199b8a683365c7c6ea9853f429e6f
 
 	let objects = $objectsData;
 	let categories = $categoryData;

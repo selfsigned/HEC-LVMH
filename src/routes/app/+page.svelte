@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import { fade, blur } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 
 	import Icon from '@iconify/svelte';
 	import ThreeMap from '$lib/3dmap/map.svelte';
@@ -27,42 +27,62 @@
 	let categories = $categoryData;
 
 	// Search and Filter Items
-	function filterItemsByCategoryObject(items, category, object) {
-		return Object.keys(items).reduce((result, key) => {
-			if (
-				(items[key].categories.includes(category) && !object) ||
-				(object && items[key].object == object)
-			) {
-				result[key] = items[key];
-			}
-			return result;
-		}, {});
+	function filterItemsByCategory(category) {
+		return Object.keys(allItems).filter((key) => {
+			return allItems[key].categories.includes(category);
+		});
 	}
 
-	$: activeProducts = filterItemsByCategoryObject(allItems, $currentCategory, $currentObject);
+	function filterItemsByObject(object) {
+		return Object.keys(allItems).filter((key) => {
+			return allItems[key].object == object;
+		});
+	}
+
+	function filterItemsByCategoryOrObject(object, category) {
+		if (object) {
+			return filterItemsByObject(object);
+		} else {
+			return filterItemsByCategory(category);
+		}
+	}
+
+	// The list of products in the current category.
+	let activeProducts;
+	$: {
+		if ($currentCategory !== 'search') {
+			activeProducts = filterItemsByCategoryOrObject($currentObject, $currentCategory);
+		}
+	}
+
 	let searchInput = '';
-	$: setTimeout(() => {
+	$: {
 		if (searchInput.length > 0) {
 			// Set category to product
-			$currentCategory = 'product';
-			$currentObject = null; // reset selectioned shelf
 			let textTarget = searchInput.toLocaleUpperCase();
 			// TODO filter on brand || category?
-			activeProducts = Object.keys(activeProducts).reduce((result, key) => {
-				if (activeProducts[key].name.toLocaleUpperCase().includes(textTarget)) {
-					result[key] = activeProducts[key];
-				}
-				return result;
-			}, {});
-			activeProducts = activeProducts;
-		} else {
+			activeProducts = Object.keys(allItems).filter((key) => {
+				return (
+					allItems[key].categories.includes('product') &&
+					allItems[key].name.toLocaleUpperCase().includes(textTarget)
+				);
+			});
+			$currentCategory = 'search';
+		} else if ($currentCategory === 'search') {
+			// Only reset the category if it was set to search.
 			$currentCategory = defaultCategory;
 		}
-	});
+	}
+
+	$: {
+		if ($currentObject) {
+			searchInput = '';
+		}
+	}
 
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
-			$currentItem = !$currentItem ? Object.keys(activeProducts)[0] : null;
+			$currentItem = !$currentItem ? activeProducts[0] : null;
 		}
 	}
 
@@ -132,7 +152,7 @@
 
 		<!-- Product list -->
 		<div class="m-2 space-y-2">
-			{#each Object.keys(activeProducts) as productId (productId)}
+			{#each activeProducts as productId (productId)}
 				{@const selected = $currentItem == productId}
 				<div
 					on:click={() => selectItemEvent(Event, productId)}
@@ -175,7 +195,7 @@
 			{#each Object.keys(categories) as categoryKey (categoryKey)}
 				{@const currCategory = categories[categoryKey]}
 				{@const isPressed = $currentCategory == categoryKey}
-				{#if !currCategory.hide_top}
+				{#if currentCategory && !currCategory.hide_top}
 					<btn
 						class="btn btn-ghost rounded-full shadow-sm backdrop-blur-[6px] {isPressed
 							? 'btn-primary bg-base-300 bg-opacity-70 shadow-xl'

@@ -82,7 +82,7 @@
 
 		// Otherwise, the object should be selected if it contains the category, but
 		// only if the category is not hidden.
-		if (categories[categoryId].hide_top) return false;
+		if (categories[categoryId] && categories[categoryId].hide_top) return false;
 		return doesObjectContrainsCategory(objectId, categoryId);
 	}
 

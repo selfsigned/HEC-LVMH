@@ -12,9 +12,11 @@
 	import {
 		itemData,
 		categoryData,
+		objectsData,
 		productInfoModal,
 		currentCategory,
-		currentItem
+		currentItem,
+		currentObject
 	} from '$lib/appstore.js';
 
 	// Default variables
@@ -31,11 +33,25 @@
 		});
 	}
 
+	function filterItemsByObject(object) {
+		return Object.keys(allItems).filter((key) => {
+			return allItems[key].object == object;
+		});
+	}
+
+	function filterItemsByCategoryOrObject(object, category) {
+		if (object) {
+			return filterItemsByObject(object);
+		} else {
+			return filterItemsByCategory(category);
+		}
+	}
+
 	// The list of products in the current category.
 	let activeProducts;
 	$: {
 		if ($currentCategory !== 'search') {
-			activeProducts = filterItemsByCategory($currentCategory);
+			activeProducts = filterItemsByCategoryOrObject($currentObject, $currentCategory);
 		}
 	}
 
@@ -68,6 +84,7 @@
 	$currentCategory = defaultCategory;
 	function selectCategory(e, category) {
 		$currentItem = null; // Reset the selected item on category change
+		$currentObject = null; // Reset the object selection
 		searchInput = ''; // Reset the search input as well
 		$currentCategory = category === $currentCategory ? defaultCategory : category;
 	}
@@ -98,20 +115,32 @@
 <div class="flex h-full flex-col-reverse overflow-hidden sm:flex-row">
 	<!-- Product sidebar -->
 	<div
-		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto rounded-r-xl shadow-sm sm:h-full sm:bg-base-200"
+		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto overflow-x-hidden rounded-r-xl shadow-sm sm:h-full sm:w-[400px] sm:bg-base-200"
 	>
 		<!-- Sidebar label -->
 		{#if $currentCategory in categories}
 			{@const catData = categories[$currentCategory]}
-			<div class="h-16 w-28 p-1">
-				{#key catData.name}
-					<div transition:blur class="relative mb-2 mt-5 hidden flex-row sm:flex">
-						<Icon height="28px" icon={catData.icon}></Icon>
+			<div class="h-16 p-1">
+				<!-- Selected shelf label -->
+				{#if $currentObject in $objectsData}
+					{@const objData = $objectsData[$currentObject]}
+					<div class="mb-2 mt-5 hidden text-sm sm:flex">
+						<Icon height="28px" icon="mdi:shop" />
 						<h2 class="text-md text-xl">
-							{catData.name}
+							{objData.name}
 						</h2>
 					</div>
-				{/key}
+				{:else}
+					<!-- category label -->
+					{#key catData.name}
+						<div transition:blur class="relative mb-2 mt-5 hidden flex-row sm:flex">
+							<Icon height="28px" icon={catData.icon} />
+							<h2 class="text-md text-xl">
+								{catData.name}
+							</h2>
+						</div>
+					{/key}
+				{/if}
 			</div>
 		{/if}
 
@@ -135,13 +164,18 @@
 	{#if $currentCategory in categories}
 		{@const catData = categories[$currentCategory]}
 		<div transition:blur class="divider h-1 w-72 self-center sm:hidden">
-			<Icon height="100px" icon={catData.icon} />{catData.name}
+			{#if $currentObject in $objectsData}
+				{@const objData = $objectsData[$currentObject]}
+				<Icon height="100px" icon="mdi:shop" />{objData.name}
+			{:else}
+				<Icon height="100px" icon={catData.icon} />{catData.name}
+			{/if}
 		</div>
 	{/if}
 
 	<!-- Search and canvas -->
 	<div class="flex h-full w-full flex-col items-center">
-		<div class="absolute z-20 m-4 flex flex-row flex-wrap gap-x-4 gap-y-1">
+		<div class="absolute z-[200] m-4 flex flex-row flex-wrap gap-x-4 gap-y-1">
 			<div class="flex items-center justify-end">
 				<input
 					type="text"

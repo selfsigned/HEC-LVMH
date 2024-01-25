@@ -8,5 +8,6 @@ export const categoryData = writable(null); // JSON of all the shelves
 export const productInfoModal = writable(null); // Display the product info modal
 
 // App user state
-export const currentCategory = writable(null);
-export const currentItem = writable(null);
+export const currentCategory = writable(null); // The currently selected category
+export const currentItem = writable(null); // The current selected item
+export const currentObject = writable(null); // The currently selected object (on the 3D map)

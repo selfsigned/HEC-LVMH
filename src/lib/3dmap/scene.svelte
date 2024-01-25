@@ -1,5 +1,5 @@
 <script>
-	import { GLTF, interactivity } from '@threlte/extras';
+	import { GLTF, interactivity, Text } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import {
@@ -13,6 +13,7 @@
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
+	import labelsList from './labels.json';
 
 	let objects = $objectsData;
 	let categories = $categoryData;
@@ -139,3 +140,14 @@
 
 <!-- Floor -->
 <GLTF url={base + '/models/base.glb'} rotation={[0, 1.57, 0]} />
+
+<!-- Labels -->
+{#each labelsList as label}
+	{@const text = label.text || ''}
+	{@const fontSize = label.fontSize || 3}
+	{@const position = label.position || [0, 20, 0]}
+	{@const scale = label.scale || [1, 1, 1]}
+	{@const color = label.color || 'black'}
+	{@const rotation = label.rotation || [-1.57, 0, Math.PI]}
+	<Text {text} {fontSize} {position} {scale} {color} {rotation} />
+{/each}

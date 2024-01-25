@@ -10,6 +10,7 @@
 	import { useThrelte } from '@threlte/core';
 	import { GLTF, HTML, Text } from '@threlte/extras';
 	import { base } from '$app/paths';
+	import { currentObject, currentCategory } from '$lib/appstore.js';
 
 	const { invalidate } = useThrelte();
 
@@ -53,6 +54,18 @@
 			invalidate();
 		}
 	}
+
+	// App logic
+	function objectSelectionEvent(e, targetID) {
+		$currentItem = null;
+		if ($currentObject != null) {
+			$currentObject = null;
+			$currentCategory = 'trend'; // hack
+		} else {
+			$currentObject = targetID;
+			$currentCategory = 'product';
+		}
+	}
 </script>
 
 <!-- Display each part of the model. -->
@@ -68,6 +81,7 @@
 		receiveShadow
 		url={base + '/models/' + object.model + '?salt=' + randomSalt()}
 		bind:materials
+		on:click={() => objectSelectionEvent(Event, id)}
 	>
 		{#if currentItemData && currentItemData.object == id}
 			<HTML

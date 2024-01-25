@@ -1,5 +1,5 @@
 <script>
-	import { GLTF, Text } from '@threlte/extras';
+	import { GLTF, interactivity } from '@threlte/extras';
 	import { T } from '@threlte/core';
 	import CameraControls from './cameracontrols.svelte';
 	import {
@@ -7,7 +7,8 @@
 		objectsData,
 		currentItem,
 		categoryData,
-		currentCategory
+		currentCategory,
+		currentObject
 	} from '$lib/appstore.js';
 	import ObjectModel from './objectmodel.svelte';
 	import { onMount } from 'svelte';
@@ -19,6 +20,7 @@
 
 	let cameraControls;
 
+	interactivity();
 	export let cameraMoved = false;
 
 	function resetCameraPosition(transition) {
@@ -79,6 +81,18 @@
 		return false;
 	}
 
+	function shouldObjectBeSelected(objectId, currentObject, categoryId) {
+		if (currentObject) {
+			// If an object is selected, then only that object should be selected.
+			return objectId == currentObject;
+		}
+
+		// Otherwise, the object should be selected if it contains the category, but
+		// only if the category is not hidden.
+		if (categories[categoryId] && categories[categoryId].hide_top) return false;
+		return doesObjectContrainsCategory(objectId, categoryId);
+	}
+
 	onMount(() => {
 		resetCameraPosition(false);
 	});
@@ -114,9 +128,10 @@
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
-	{@const includesCategory = doesObjectContrainsCategory(objectKey, $currentCategory)}
 	<ObjectModel
-		blendColor={categories[$currentCategory].hide_top || !includesCategory ? null : 0x444444}
+		blendColor={shouldObjectBeSelected(objectKey, $currentObject, $currentCategory)
+			? null
+			: 0x444444}
 		id={objectKey}
 	/>
 {/each}

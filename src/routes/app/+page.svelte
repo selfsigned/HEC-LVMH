@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import { fade, blur } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 
 	import Icon from '@iconify/svelte';
 	import ThreeMap from '$lib/3dmap/map.svelte';
@@ -12,9 +12,11 @@
 	import {
 		itemData,
 		categoryData,
+		objectsData,
 		productInfoModal,
 		currentCategory,
-		currentItem
+		currentItem,
+		currentObject
 	} from '$lib/appstore.js';
 
 	// Default variables
@@ -25,38 +27,62 @@
 	let categories = $categoryData;
 
 	// Search and Filter Items
-	function filterItemsByCategory(items, category) {
-		return Object.keys(items).reduce((result, key) => {
-			if (items[key].categories.includes(category)) {
-				result[key] = items[key];
-			}
-			return result;
-		}, {});
+	function filterItemsByCategory(category) {
+		return Object.keys(allItems).filter((key) => {
+			return allItems[key].categories.includes(category);
+		});
 	}
 
-	$: activeProducts = filterItemsByCategory(allItems, $currentCategory);
+	function filterItemsByObject(object) {
+		return Object.keys(allItems).filter((key) => {
+			return allItems[key].object == object;
+		});
+	}
+
+	function filterItemsByCategoryOrObject(object, category) {
+		if (object) {
+			return filterItemsByObject(object);
+		} else {
+			return filterItemsByCategory(category);
+		}
+	}
+
+	// The list of products in the current category.
+	let activeProducts;
+	$: {
+		if ($currentCategory !== 'search') {
+			activeProducts = filterItemsByCategoryOrObject($currentObject, $currentCategory);
+		}
+	}
+
 	let searchInput = '';
-	$: setTimeout(() => {
+	$: {
 		if (searchInput.length > 0) {
 			// Set category to product
-			$currentCategory = 'product';
 			let textTarget = searchInput.toLocaleUpperCase();
 			// TODO filter on brand || category?
-			activeProducts = Object.keys(activeProducts).reduce((result, key) => {
-				if (activeProducts[key].name.toLocaleUpperCase().includes(textTarget)) {
-					result[key] = activeProducts[key];
-				}
-				return result;
-			}, {});
-			activeProducts = activeProducts;
-		} else {
+			activeProducts = Object.keys(allItems).filter((key) => {
+				return (
+					allItems[key].categories.includes('product') &&
+					allItems[key].name.toLocaleUpperCase().includes(textTarget)
+				);
+			});
+			$currentCategory = 'search';
+		} else if ($currentCategory === 'search') {
+			// Only reset the category if it was set to search.
 			$currentCategory = defaultCategory;
 		}
-	});
+	}
+
+	$: {
+		if ($currentObject) {
+			searchInput = '';
+		}
+	}
 
 	function searchSubmit(e) {
 		if (e.key === 'Enter') {
-			$currentItem = !$currentItem ? Object.keys(activeProducts)[0] : null;
+			$currentItem = !$currentItem ? activeProducts[0] : null;
 		}
 	}
 
@@ -64,6 +90,7 @@
 	$currentCategory = defaultCategory;
 	function selectCategory(e, category) {
 		$currentItem = null; // Reset the selected item on category change
+		$currentObject = null; // Reset the object selection
 		searchInput = ''; // Reset the search input as well
 		$currentCategory = category === $currentCategory ? defaultCategory : category;
 	}
@@ -94,26 +121,38 @@
 <div class="flex h-full flex-col-reverse overflow-hidden sm:flex-row">
 	<!-- Product sidebar -->
 	<div
-		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto rounded-r-xl shadow-sm sm:h-full sm:bg-base-200"
+		class="z-20 flex h-1/3 min-w-[19rem] flex-col items-center overflow-y-auto overflow-x-hidden rounded-r-xl shadow-sm sm:h-full sm:w-[400px] sm:bg-base-200"
 	>
 		<!-- Sidebar label -->
 		{#if $currentCategory in categories}
 			{@const catData = categories[$currentCategory]}
-			<div class="h-16 w-28 p-1">
-				{#key catData.name}
-					<div transition:blur class="relative mb-2 mt-5 hidden flex-row sm:flex">
-						<Icon height="28px" icon={catData.icon}></Icon>
+			<div class="h-16 p-1">
+				<!-- Selected shelf label -->
+				{#if $currentObject in $objectsData}
+					{@const objData = $objectsData[$currentObject]}
+					<div class="mb-2 mt-5 hidden text-sm sm:flex">
+						<Icon height="28px" icon="mdi:shop" />
 						<h2 class="text-md text-xl">
-							{catData.name}
+							{objData.name}
 						</h2>
 					</div>
-				{/key}
+				{:else}
+					<!-- category label -->
+					{#key catData.name}
+						<div transition:blur class="relative mb-2 mt-5 hidden flex-row sm:flex">
+							<Icon height="28px" icon={catData.icon} />
+							<h2 class="text-md text-xl">
+								{catData.name}
+							</h2>
+						</div>
+					{/key}
+				{/if}
 			</div>
 		{/if}
 
 		<!-- Product list -->
 		<div class="m-2 space-y-2">
-			{#each Object.keys(activeProducts) as productId (productId)}
+			{#each activeProducts as productId (productId)}
 				{@const selected = $currentItem == productId}
 				<div
 					on:click={() => selectItemEvent(Event, productId)}
@@ -131,13 +170,18 @@
 	{#if $currentCategory in categories}
 		{@const catData = categories[$currentCategory]}
 		<div transition:blur class="divider h-1 w-72 self-center sm:hidden">
-			<Icon height="100px" icon={catData.icon} />{catData.name}
+			{#if $currentObject in $objectsData}
+				{@const objData = $objectsData[$currentObject]}
+				<Icon height="100px" icon="mdi:shop" />{objData.name}
+			{:else}
+				<Icon height="100px" icon={catData.icon} />{catData.name}
+			{/if}
 		</div>
 	{/if}
 
 	<!-- Search and canvas -->
 	<div class="flex h-full w-full flex-col items-center">
-		<div class="absolute z-20 m-4 flex flex-row flex-wrap gap-x-4 gap-y-1">
+		<div class="absolute z-[200] m-4 flex flex-row flex-wrap gap-x-4 gap-y-1">
 			<div class="flex items-center justify-end">
 				<input
 					type="text"
@@ -151,7 +195,7 @@
 			{#each Object.keys(categories) as categoryKey (categoryKey)}
 				{@const currCategory = categories[categoryKey]}
 				{@const isPressed = $currentCategory == categoryKey}
-				{#if !currCategory.hide_top}
+				{#if currentCategory && !currCategory.hide_top}
 					<btn
 						class="btn btn-ghost rounded-full shadow-sm backdrop-blur-[6px] {isPressed
 							? 'btn-primary bg-base-300 bg-opacity-70 shadow-xl'

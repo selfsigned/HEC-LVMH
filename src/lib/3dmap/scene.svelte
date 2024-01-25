@@ -102,7 +102,10 @@
 {#each Object.keys(objects) as objectKey (objectKey)}
 	{@const includesCategory = doesObjectContrainsCategory(objectKey, $currentCategory)}
 	<ObjectModel
-		blendColor={categories[$currentCategory].hide_top || !includesCategory ? 0xffffff : 0x444444}
+		blendColor={(categories[$currentCategory] && categories[$currentCategory].hide_top) ||
+		!includesCategory
+			? 0xffffff
+			: 0x444444}
 		id={objectKey}
 	/>
 {/each}

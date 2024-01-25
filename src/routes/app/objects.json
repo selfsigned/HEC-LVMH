@@ -1,47 +1,11 @@
 {
-	"0": {
-		"pos": [4.5, 0, 2],
-		"rot": -90,
-		"scale": 0.5,
-		"name": "Dior",
-		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [-0.5, 4, -1],
-		"cardOffset": [0, 7, 0]
-	},
-	"2": {
-		"pos": [-4, 0, -4],
-		"rot": 90,
-		"scale": 0.5,
-		"name": "Men perfume",
-		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [-1.5, 4, -1],
-		"cardOffset": [0, 7, 0]
-	},
-	"3": {
-		"pos": [-3.6, 0, 2],
-		"scale": 0.5,
-		"name": "Next Big Thing",
-		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [-1.5, 4, -1],
-		"cardOffset": [0, 7, 0]
-	},
-	"4": {
-		"pos": [3, 0, -2],
-		"scale": 0.5,
-		"name": "Beauty Hub",
-		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [-1.5, 4, -1],
-		"cardOffset": [0, 7, 0]
-	},
-
 	"101": {
 		"pos": [-40.4, 0, -17.8],
 		"rot": 90,
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
-		"cardOffset": [0, 14, 0]
+		"cardOffset": [0, 7, 0]
 	},
 	"102": {
 		"pos": [-43.8, 0, -17.8],
@@ -49,7 +13,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"103": {
@@ -58,7 +21,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"104": {
@@ -67,7 +29,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"105": {
@@ -76,7 +37,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"106": {
@@ -85,7 +45,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"107": {
@@ -94,7 +53,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"108": {
@@ -103,7 +61,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"109": {
@@ -112,7 +69,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"110": {
@@ -121,7 +77,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"111": {
@@ -130,7 +85,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"112": {
@@ -139,7 +93,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"113": {
@@ -148,7 +101,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"114": {
@@ -157,7 +109,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"115": {
@@ -166,7 +117,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"116": {
@@ -175,7 +125,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"117": {
@@ -184,7 +133,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"118": {
@@ -193,7 +141,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"119": {
@@ -202,7 +149,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"120": {
@@ -211,7 +157,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"121": {
@@ -220,7 +165,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"122": {
@@ -229,7 +173,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"123": {
@@ -238,7 +181,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"124": {
@@ -247,7 +189,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"125": {
@@ -256,7 +197,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"126": {
@@ -265,7 +205,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"127": {
@@ -274,7 +213,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"128": {
@@ -283,7 +221,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"129": {
@@ -292,7 +229,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"130": {
@@ -301,7 +237,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"131": {
@@ -310,7 +245,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"132": {
@@ -319,7 +253,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"133": {
@@ -328,7 +261,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"134": {
@@ -337,7 +269,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_HUB.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"135": {
@@ -346,7 +277,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"136": {
@@ -355,7 +285,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"137": {
@@ -364,7 +293,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"138": {
@@ -373,7 +301,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"139": {
@@ -382,7 +309,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"140": {
@@ -391,7 +317,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"141": {
@@ -400,7 +325,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"142": {
@@ -409,7 +333,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"143": {
@@ -418,7 +341,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"144": {
@@ -427,7 +349,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"145": {
@@ -436,7 +357,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"146": {
@@ -445,7 +365,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"147": {
@@ -454,7 +373,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"148": {
@@ -463,7 +381,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"149": {
@@ -472,7 +389,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"150": {
@@ -481,7 +397,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"151": {
@@ -490,7 +405,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"152": {
@@ -499,7 +413,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"153": {
@@ -508,7 +421,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"154": {
@@ -517,7 +429,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"155": {
@@ -526,7 +437,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"156": {
@@ -535,7 +445,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"157": {
@@ -544,7 +453,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"158": {
@@ -553,7 +461,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"159": {
@@ -562,7 +469,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"160": {
@@ -571,7 +477,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"161": {
@@ -580,7 +485,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"162": {
@@ -589,7 +493,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"163": {
@@ -598,7 +501,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"164": {
@@ -607,7 +509,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"165": {
@@ -616,7 +517,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"166": {
@@ -625,7 +525,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"167": {
@@ -634,7 +533,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"168": {
@@ -643,7 +541,6 @@
 		"scale": 1.8,
 		"name": "Unknown",
 		"model": "MAKEUP_SHELF.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"169": {
@@ -652,7 +549,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"170": {
@@ -661,7 +557,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"171": {
@@ -670,7 +565,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"172": {
@@ -679,7 +573,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"173": {
@@ -688,7 +581,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	},
 	"174": {
@@ -697,7 +589,6 @@
 		"scale": 1.6,
 		"name": "Unknown",
 		"model": "SHELF_PERFUME.glb",
-		"textOffset": [0, 8, -1],
 		"cardOffset": [0, 14, 0]
 	}
 }

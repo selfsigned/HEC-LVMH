@@ -75,20 +75,11 @@
 				zIndexRange={[0, 100]}
 				position={cardOffset}
 				rotation={[0, -rotation + cardRotation, 0]}
-				scale={[0.5 / scale, 0.5 / scale, 0.5 / scale]}
+				scale={[1.5 / scale, 1.5 / scale, 1.5 / scale]}
 				transform
 			>
-				<ProductCard enableInfoBtn={true} id={$currentItem} />
+				<ProductCard enableInfoBtn={true} transparent id={$currentItem} />
 			</HTML>
-		{/if}
-		{#if object.name}
-			<Text
-				position={textOffset}
-				rotation={[-1.57, 0, 0]}
-				text={object.name}
-				color="black"
-				fontSize={0.25 / scale}
-			></Text>
 		{/if}
 	</GLTF>
 {/if}

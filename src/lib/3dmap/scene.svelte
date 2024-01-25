@@ -44,10 +44,16 @@
 		let object = objects[item.object];
 		if (!object) return;
 
+		const newPos = [
+			object.pos[0] + object.cardOffset[0],
+			object.pos[1] + object.cardOffset[1],
+			object.pos[2] + object.cardOffset[2]
+		];
+
 		cameraControls.rotateAzimuthTo(0.0, true);
-		cameraControls.rotatePolarTo(1.0, true);
-		cameraControls.moveTo(object.pos[0], object.pos[1], object.pos[2], true);
-		cameraControls.dollyTo(30, true);
+		cameraControls.rotatePolarTo(1.2, true);
+		cameraControls.moveTo(newPos[0], newPos[1], newPos[2], true);
+		cameraControls.dollyTo(34, true);
 	}
 
 	$: rotateToItem($currentItem);
@@ -78,6 +84,7 @@
 	});
 </script>
 
+<!-- Camera -->
 <T.PerspectiveCamera makeDefault position={[0, 5, 50]}>
 	<CameraControls
 		on:create={({ ref }) => {
@@ -96,8 +103,9 @@
 	/>
 </T.PerspectiveCamera>
 
-<T.DirectionalLight intensity={3} position={[10, 10, 10]} castShadow />
-<T.AmbientLight intensity={2} />
+<!-- Lighting -->
+<T.DirectionalLight intensity={4} position={[5, 20, -10]} castShadow />
+<T.AmbientLight intensity={3} />
 
 <!-- Display the objects that have been loaded for this scene. -->
 {#each Object.keys(objects) as objectKey (objectKey)}
@@ -107,14 +115,6 @@
 		id={objectKey}
 	/>
 {/each}
-
-<T.Mesh position.z={-5} position.y={3}>
-	<Text text={'Sephora'} fontSize={1}></Text>
-</T.Mesh>
-
-<T.Mesh position={[-1, 0, 5]} rotation={[-1.57, 0, 0]}>
-	<Text text={'Entrance'} fontSize={0.5}></Text>
-</T.Mesh>
 
 <!-- Floor -->
 <GLTF url={base + '/models/base.glb'} rotation={[0, 1.57, 0]} />

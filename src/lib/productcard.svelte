@@ -3,6 +3,7 @@
 	export let id;
 	export let selected = false;
 	export let enableInfoBtn = false;
+	export let transparent = false;
 
 	$: itemInfo = $itemData[id];
 
@@ -11,7 +12,11 @@
 	}
 </script>
 
-<div class="card card-side w-72 {selected ? 'bg-base-200 shadow-xl' : 'bg-base-100 shadow-md'}">
+<div
+	class="card card-side w-72 {transparent ? 'opacity-80' : ''} {selected
+		? 'bg-base-200 shadow-xl'
+		: 'bg-base-100 shadow-md'}"
+>
 	<figure class="outline-4 outline-red-800">
 		<img src={itemInfo.picURL} class="mask mask-squircle ml-2 h-20 w-20" alt="Product" />
 	</figure>

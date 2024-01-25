@@ -19,12 +19,17 @@
 	let cameraControls;
 
 	interactivity();
+	export let cameraMoved = false;
 
 	function resetCameraPosition(transition) {
 		cameraControls.moveTo(0, 0, 0, transition);
 		cameraControls.rotateAzimuthTo(0, transition);
 		cameraControls.rotatePolarTo(0.5, transition);
 		cameraControls.dollyTo(20, transition);
+	}
+
+	export function resetCamera() {
+		resetCameraPosition(true);
 	}
 
 	function rotateToItem(itemId) {
@@ -77,6 +82,12 @@
 	<CameraControls
 		on:create={({ ref }) => {
 			cameraControls = ref;
+		}}
+		on:update={() => {
+			const curPos = cameraControls.getPosition();
+			const offset = [curPos.x - 0, curPos.y - 17.551651237807455, curPos.z - 9.58851077208406];
+			const dist = offset[0] * offset[0] + offset[1] * offset[1] + offset[2] * offset[2];
+			cameraMoved = dist >= 0.1;
 		}}
 		maxPolarAngle={Math.PI / 2 - 0.1}
 		draggingSmoothTime={0.2}

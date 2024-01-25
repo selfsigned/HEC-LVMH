@@ -10,7 +10,7 @@
 	},
 	"1": {
 		"categories": ["service"],
-		"object": 4,
+		"object": "104",
 		"name": "Glamour Makeup",
 		"category": "60 minutes",
 		"price": 60,
@@ -18,7 +18,7 @@
 	},
 	"2": {
 		"categories": ["service", "trend"],
-		"object": 4,
+		"object": "108",
 		"name": "Skin Diagnosis",
 		"category": "10 minutes",
 		"price": 0,
@@ -26,7 +26,7 @@
 	},
 	"71388": {
 		"categories": ["product", "promo", "trend"],
-		"object": 0,
+		"object": "108",
 		"name": "J'adore",
 		"category": "Eau de Parfum",
 		"brand": "Dior",
@@ -37,7 +37,7 @@
 	},
 	"421404": {
 		"categories": ["product", "promo"],
-		"object": 2,
+		"object": "110",
 		"name": "Sauvage",
 		"category": "Parfum Homme",
 		"brand": "Dior",

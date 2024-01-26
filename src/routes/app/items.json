@@ -1,27 +1,38 @@
 {
 	"0": {
 		"categories": ["service"],
-		"object": "101",
+		"object": "beauty_hub8",
 		"name": "Complete Makeup",
 		"category": "45 minutes",
-		"price": 45,
 		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/default/dwee659587/service/ServicesMU45.jpg"
 	},
 	"1": {
 		"categories": ["service"],
-		"object": "104",
+		"object": "beauty_hub7",
 		"name": "Glamour Makeup",
 		"category": "60 minutes",
-		"price": 60,
 		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/fr_FR/dw4a53c51b/60%20min%20540x370px_MU1.jpg"
 	},
 	"2": {
 		"categories": ["service", "trend"],
-		"object": "108",
+		"object": "beauty_hub8",
 		"name": "Skin Diagnosis",
 		"category": "10 minutes",
-		"price": 0,
 		"picURL": "https://www.sephora.fr/dw/image/v2/BCVW_PRD/on/demandware.static/-/Library-Sites-SephoraV2/default/dw85e371d5/LP/instore-experience-generique-master-studio/7.png"
+	},
+	"658531": {
+		"categories": ["product", "eco"],
+		"name": "Hydra-Essentiel [HA²]",
+		"object": "clarins",
+		"category": "Makeup",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw896945f4/images/hi-res/SKU/SKU_5030/716339_swatch.jpg"
+	},
+	"1000202956": {
+		"categories": ["product"],
+		"name": "Dior Forever Glow Maximizer",
+		"object": "dior_makeup",
+		"category": "Crème Hydratante",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw896945f4/images/hi-res/SKU/SKU_5030/716339_swatch.jpg"
 	},
 	"71388": {
 		"categories": ["product", "promo", "trend"],
@@ -29,13 +40,11 @@
 		"name": "J'adore",
 		"category": "Eau de Parfum",
 		"brand": "Dior",
-		"price": 75,
 		"promo": 10,
-		"quantityML": 30,
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw046c217c/images/hi-res/SKU/SKU_6/71388_swatch.jpg"
 	},
 	"421404": {
-		"categories": ["product", "promo"],
+		"categories": ["product", "promo", "eco"],
 		"object": "110",
 		"name": "Sauvage",
 		"category": "Parfum Homme",
@@ -46,12 +55,51 @@
 	},
 	"701980": {
 		"categories": ["product", "trend"],
-		"object": null,
+		"object": "socmedia_tiktok",
 		"name": "Good Girl",
 		"category": "Coffret Eau de parfum",
 		"brand": "CAROLINA HERRERA",
-		"price": 104,
-		"quantityML": 80,
 		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwede99b16/images/hi-res/SKU/SKU_4782/701980_swatch.jpg"
+	},
+	"450468": {
+		"categories": ["product", "eco", "promo"],
+		"object": "Sephora_Center",
+		"name": "Outrageous Plump Effect Gloss",
+		"category": "Gloss Repulpant",
+		"brand": "SEPHORA COLLECTION",
+		"promo": 15,
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb1c3f305/images/hi-res/SKU/SKU_1247/450468_swatch.jpg"
+	},
+	"502450": {
+		"categories": ["product", "trend", "eco"],
+		"object": "socmedia_tiktok",
+		"name": "Niacinamide 10% + Zinc 1%",
+		"category": "Sérum Anti-Imperfections",
+		"brand": "THE ORDINARY",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw07ce870c/images/hi-res/SKU/SKU_1130/502450_swatch.jpg"
+	},
+	"669087": {
+		"categories": ["product", "trend", "eco"],
+		"object": "socmedia_tiktok",
+		"name": "Mousse Hydratante Nettoyante au Thé Vert",
+		"category": "Nettoyant Visage",
+		"brand": "INNISFREE",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw73cd4dc0/images/hi-res/PID_principal/PID_principal_3571/P10049564_principal.jpg"
+	},
+	"658865": {
+		"categories": ["product", "eco"],
+		"object": "dior_makeup",
+		"name": "Dior Backstage Face & Body Foundation",
+		"category": "Fond de teint visage et corps",
+		"brand": "DIOR",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwa21c745e/images/hi-res/SKU/SKU_4190/658865_swatch.jpg"
+	},
+	"528275": {
+		"categories": ["product", "eco"],
+		"object": "dior_makeup",
+		"name": "Dior Backstage Glow Face Palette",
+		"category": "Palette maquillage visage enlumineur & blush",
+		"brand": "DIOR",
+		"picURL": "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwe5e80ff9/images/hi-res/SKU/SKU_1758/528275_swatch.jpg"
 	}
 }

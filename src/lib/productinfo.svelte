@@ -9,6 +9,7 @@
 
 {#if id in $itemData}
 	{#if $itemData[id].categories.includes('product')}
+		<div class="font-bold">Our in-store Beauty Advisors would be happy to help you out!</div>
 		<iframe class="h-full w-full" title="Sephora website" src={sephoraProductUrl + id + '.html'} />
 	{:else}
 		<Booking {id} />

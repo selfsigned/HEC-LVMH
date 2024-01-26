@@ -52,6 +52,7 @@
 
 	// App logic
 	function objectSelectionEvent(e, targetID) {
+		console.log('Target item is: ', targetID);
 		$currentItem = null;
 		if ($currentObject != null) {
 			$currentObject = null;

@@ -39,11 +39,11 @@
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"106": {
+	"clarins": {
 		"pos": [20.5, 0, -19.7],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Clarins",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -207,67 +207,67 @@
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"127": {
+	"beauty_hub": {
 		"pos": [-28.8, -1, -45.0],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"128": {
+	"beauty_hub2": {
 		"pos": [-23.8, -1, -45.0],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"129": {
+	"beauty_hub3": {
 		"pos": [-23.8, -1, -55.5],
 		"rot": 0,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"130": {
+	"beauty_hub4": {
 		"pos": [-28.8, -1, -55.5],
 		"rot": 0,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"131": {
+	"beauty_hub5": {
 		"pos": [24.2, -1, -45.0],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"132": {
+	"beauty_hub6": {
 		"pos": [29.5, -1, -45.0],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"133": {
+	"beauty_hub7": {
 		"pos": [29.5, -1, -55.5],
 		"rot": 0,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"134": {
+	"beauty_hub8": {
 		"pos": [24.2, -1, -55.5],
 		"rot": 0,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Beauty Hub",
 		"model": "SHELF_HUB.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -327,11 +327,11 @@
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"142": {
+	"dior_makeup": {
 		"pos": [-30.6, 0, -70.1],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Dior Makeup",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -391,11 +391,11 @@
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"150": {
+	"Sephora_Center": {
 		"pos": [32.2, 0, -70.1],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Sephora Collection",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -471,11 +471,11 @@
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"160": {
+	"socmedia_tiktok": {
 		"pos": [20.5, 0, -88.1],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Tiktok",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},

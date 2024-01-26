@@ -75,7 +75,7 @@
 		"pos": [42.5, 0, -19.7],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "DIOR Men",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -323,7 +323,7 @@
 		"pos": [-30.6, 0, -66.5],
 		"rot": 0,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Dior",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -339,15 +339,15 @@
 		"pos": [-22.6, 0, -66.5],
 		"rot": 0,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Dior",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"144": {
+	"dior_perfume": {
 		"pos": [-22.6, 0, -70.1],
 		"rot": 180,
 		"scale": 1.8,
-		"name": "Unknown",
+		"name": "Dior Perfume",
 		"model": "MAKEUP_SHELF.glb",
 		"cardOffset": [0, 7, 0]
 	},
@@ -567,28 +567,28 @@
 		"model": "SHELF_PERFUME.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"172": {
+	"men_perfume1": {
 		"pos": [57, 0.8, -90],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Men Perfume",
 		"model": "SHELF_PERFUME.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"173": {
+	"men_perfume2": {
 		"pos": [57, 0.8, -53],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Men Perfume",
 		"model": "SHELF_PERFUME.glb",
 		"cardOffset": [0, 7, 0]
 	},
-	"174": {
+	"men_perfume3": {
 		"pos": [57, 0.8, -16],
 		"rot": 180,
 		"scale": 1.6,
-		"name": "Unknown",
+		"name": "Men Perfume",
 		"model": "SHELF_PERFUME.glb",
-		"cardOffset": [0, 7, 0]
+		"cardOffset": [5, 7, 0]
 	}
 }

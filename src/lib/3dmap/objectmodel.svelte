@@ -88,7 +88,7 @@
 				scale={[1.5 / scale, 1.5 / scale, 1.5 / scale]}
 				transform
 			>
-				<ProductCard enableInfoBtn={true} transparent id={$currentItem} />
+				<ProductCard enableInfoBtn={true} id={$currentItem} />
 			</HTML>
 		{/if}
 	</GLTF>

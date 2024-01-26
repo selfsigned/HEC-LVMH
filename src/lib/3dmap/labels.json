@@ -80,8 +80,8 @@
 		"fontSize": 4
 	},
 	{
-		"text": "Séphora",
-		"position": [15, 30, 30],
+		"text": "Sephora",
+		"position": [15, 20, 30],
 		"rotation": [0, 3.14, 0],
 		"fontSize": 8,
 		"color": "gray"
